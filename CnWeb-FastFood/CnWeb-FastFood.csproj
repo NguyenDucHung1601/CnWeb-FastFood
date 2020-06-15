@@ -131,6 +131,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1073,6 +1074,11 @@
     <Content Include="Assets\Admin\LTE\plugins\datatables\extensions\TableTools\Readme.md" />
     <Content Include="Assets\Admin\LTE\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="Assets\Admin\LTE\plugins\input-mask\phone-codes\phone-codes.json" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminlteMainHeader.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminlteMainSidebar.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminlteFooter.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminlteControlSidebar.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
