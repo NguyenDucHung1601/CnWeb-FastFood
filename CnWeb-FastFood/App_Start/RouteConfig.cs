@@ -16,8 +16,9 @@ namespace CnWeb_FastFood
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                defaults: new {controller = "Dashboard", action = "Index", id = UrlParameter.Optional }        
+            ).DataTokens.Add("area", "Admin");
+   
         }
     }
 }
