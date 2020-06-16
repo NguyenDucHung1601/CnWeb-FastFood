@@ -1,4 +1,4 @@
-namespace CnWeb_FastFood.Models
+namespace CnWeb_FastFood.Models.EF
 {
     using System;
     using System.Collections.Generic;
@@ -6,13 +6,13 @@ namespace CnWeb_FastFood.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("BillDetail")]
-    public partial class BillDetail
+    [Table("CartDetail")]
+    public partial class CartDetail
     {
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int id_bill { get; set; }
+        public int id_customer { get; set; }
 
         [Key]
         [Column(Order = 1)]
@@ -27,7 +27,7 @@ namespace CnWeb_FastFood.Models
 
         public string discriptionProductDetail { get; set; }
 
-        public virtual Bill Bill { get; set; }
+        public virtual Cart Cart { get; set; }
 
         public virtual Product Product { get; set; }
     }
