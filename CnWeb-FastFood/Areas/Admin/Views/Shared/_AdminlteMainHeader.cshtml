@@ -210,36 +210,25 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="~/Assets/Admin/Images/logo.png" class="user-image" alt="User Image" />
-                        <span class="hidden-xs">Admin-FastFood</span>
+                        <span class="hidden-xs">@Session["USER_SESSION"]</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
                             <img src="~/Assets/Admin/Images/logo.png" class="img-circle" alt="User Image" />
                             <p>
-                                Admin-FastFood
-                                <small>Member since Nov. 2012</small>
+                                @Session["USER_SESSION"]
+                                <small>Thành viên từ @Convert.ToDateTime(@Session["CREATE_USER_SESSION"]).ToShortDateString() </small>
                             </p>
                         </li>
-                        <!-- Menu Body -->
-                        <li class="user-body">
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Followers</a>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Sales</a>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Friends</a>
-                            </div>
-                        </li>
+                     
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                             </div>
-                            <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                            <div class="pull-right">                                
+                                @Html.ActionLink("Sign out","Index","Login", null, htmlAttributes: new { @class = "btn btn-default btn-flat" })
                             </div>
                         </li>
                     </ul>

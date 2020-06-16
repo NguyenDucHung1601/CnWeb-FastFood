@@ -1,4 +1,4 @@
-namespace CnWeb_FastFood.Models
+namespace CnWeb_FastFood.Models.EF
 {
     using System;
     using System.Collections.Generic;

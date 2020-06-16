@@ -1,4 +1,4 @@
-namespace CnWeb_FastFood.Models
+namespace CnWeb_FastFood.Models.EF
 {
     using System;
     using System.Data.Entity;
@@ -17,10 +17,14 @@ namespace CnWeb_FastFood.Models
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<CartDetail> CartDetails { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Credential> Credentials { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<DiscountCode> DiscountCodes { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductDetail> ProductDetails { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserGroup> UserGroups { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -77,6 +81,14 @@ namespace CnWeb_FastFood.Models
                 .HasMany(e => e.Products)
                 .WithOptional(e => e.Category)
                 .WillCascadeOnDelete();
+
+            modelBuilder.Entity<Credential>()
+                .Property(e => e.id_userGroup)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Credential>()
+                .Property(e => e.id_role)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Customer>()
                 .Property(e => e.phone)
@@ -152,6 +164,30 @@ namespace CnWeb_FastFood.Models
             modelBuilder.Entity<ProductDetail>()
                 .Property(e => e.extraPrice)
                 .HasPrecision(10, 0);
+
+            modelBuilder.Entity<Role>()
+                .Property(e => e.id_role)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.userName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.id_userGroup)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserGroup>()
+                .Property(e => e.id_userGroup)
+                .IsUnicode(false);
         }
     }
 }
