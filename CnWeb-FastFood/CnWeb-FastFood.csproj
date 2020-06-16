@@ -131,22 +131,26 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Bill.cs" />
-    <Compile Include="Models\BillDetail.cs" />
-    <Compile Include="Models\Cart.cs" />
-    <Compile Include="Models\CartDetail.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\DiscountCode.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ProductDetail.cs" />
-    <Compile Include="Models\SnackShopDBContext.cs" />
+    <Compile Include="Models\Dao\Admin\CategoryDao.cs" />
+    <Compile Include="Models\Dao\Admin\ProductDao.cs" />
+    <Compile Include="Models\EF\Bill.cs" />
+    <Compile Include="Models\EF\BillDetail.cs" />
+    <Compile Include="Models\EF\Cart.cs" />
+    <Compile Include="Models\EF\CartDetail.cs" />
+    <Compile Include="Models\EF\Category.cs" />
+    <Compile Include="Models\EF\Customer.cs" />
+    <Compile Include="Models\EF\DiscountCode.cs" />
+    <Compile Include="Models\EF\Product.cs" />
+    <Compile Include="Models\EF\ProductDetail.cs" />
+    <Compile Include="Models\EF\SnackShopDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1073,6 +1077,15 @@
     <Content Include="Assets\Admin\LTE\plugins\datatables\extensions\TableTools\Readme.md" />
     <Content Include="Assets\Admin\LTE\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="Assets\Admin\LTE\plugins\input-mask\phone-codes\phone-codes.json" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminlteMainHeader.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminlteMainSidebar.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminlteFooter.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminlteControlSidebar.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1108,6 +1121,7 @@
     <Folder Include="Areas\Client\Models\" />
     <Folder Include="Areas\Client\Views\Shared\" />
     <Folder Include="Assets\Client\" />
+    <Folder Include="Models\Dao\Client\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
