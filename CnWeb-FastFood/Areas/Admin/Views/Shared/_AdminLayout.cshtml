@@ -70,7 +70,7 @@
         @Html.Partial("_AdminlteControlSidebar")
         <!-- /.control-sidebar -->
         <!-- Add the sidebar's background. This div must be placed
-    immediately after the control sidebar -->
+        immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
@@ -110,5 +110,6 @@
     <script src="~/Assets/Admin/LTE/dist/js/pages/dashboard.js" type="text/javascript"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="~/Assets/Admin/LTE/dist/js/demo.js" type="text/javascript"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

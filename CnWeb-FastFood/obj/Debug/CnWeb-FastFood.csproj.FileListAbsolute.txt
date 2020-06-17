@@ -153,4 +153,3 @@ E:\Kì 2 năm 3\Cong nghe Web\CnWeb-FastFood\CnWeb-FastFood\obj\Debug\CnWeb-Fast
 E:\Kì 2 năm 3\Cong nghe Web\CnWeb-FastFood\CnWeb-FastFood\obj\Debug\CnWeb-FastFood.csproj.CopyComplete
 E:\Kì 2 năm 3\Cong nghe Web\CnWeb-FastFood\CnWeb-FastFood\obj\Debug\CnWeb-FastFood.dll
 E:\Kì 2 năm 3\Cong nghe Web\CnWeb-FastFood\CnWeb-FastFood\obj\Debug\CnWeb-FastFood.pdb
-E:\Kì 2 năm 3\Cong nghe Web\CnWeb-FastFood\CnWeb-FastFood\obj\Debug\CnWeb-FastFood.csprojAssemblyReference.cache
