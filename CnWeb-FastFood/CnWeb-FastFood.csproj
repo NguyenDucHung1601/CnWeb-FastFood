@@ -132,8 +132,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Models\CommonConstants.cs" />
+    <Compile Include="Areas\Admin\Models\UserLogin.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -141,16 +145,21 @@
     </Compile>
     <Compile Include="Models\Dao\Admin\CategoryDao.cs" />
     <Compile Include="Models\Dao\Admin\ProductDao.cs" />
+    <Compile Include="Models\Dao\Admin\UserDao.cs" />
     <Compile Include="Models\EF\Bill.cs" />
     <Compile Include="Models\EF\BillDetail.cs" />
     <Compile Include="Models\EF\Cart.cs" />
     <Compile Include="Models\EF\CartDetail.cs" />
     <Compile Include="Models\EF\Category.cs" />
+    <Compile Include="Models\EF\Credential.cs" />
     <Compile Include="Models\EF\Customer.cs" />
     <Compile Include="Models\EF\DiscountCode.cs" />
     <Compile Include="Models\EF\Product.cs" />
     <Compile Include="Models\EF\ProductDetail.cs" />
+    <Compile Include="Models\EF\Role.cs" />
     <Compile Include="Models\EF\SnackShopDBContext.cs" />
+    <Compile Include="Models\EF\User.cs" />
+    <Compile Include="Models\EF\UserGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -956,6 +965,7 @@
     <Content Include="Assets\Admin\LTE\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Assets\Admin\LTE\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Assets\Admin\LTE\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Assets\Admin\otherAssets\style.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -969,7 +979,6 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Client\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <Content Include="Assets\Admin\LTE\bootstrap\css\bootstrap.css.map" />
     <Content Include="Assets\Admin\LTE\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Assets\Admin\LTE\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
@@ -1086,6 +1095,11 @@
     <Content Include="Areas\Admin\Views\Category\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1116,7 +1130,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Content\Photos\" />
+    <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Areas\Client\Controllers\" />
     <Folder Include="Areas\Client\Models\" />
     <Folder Include="Areas\Client\Views\Shared\" />
