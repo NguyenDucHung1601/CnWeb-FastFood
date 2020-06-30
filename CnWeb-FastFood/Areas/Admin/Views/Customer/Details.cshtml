@@ -1,0 +1,90 @@
+﻿@model CnWeb_FastFood.Models.EF.Customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section header
+{
+    Sản phẩm - Thông tin khách hàng (#@Model.id_customer)
+}
+
+
+<dl class="dl-horizontal">
+    <dt>
+        Mã khách hàng:
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.id_customer)
+    </dd>
+
+    <dt>
+        Tên khách hàng:
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.name)
+    </dd>
+
+    <dt>
+        Số điện thoại
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.phone)
+    </dd>
+
+    <dt>
+        Địa chỉ:
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.address)
+    </dd>
+
+    <dt>
+        UserName:
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.userName)
+    </dd>
+
+    <dt>
+        SubTotalCart:
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.subtotalCart)
+    </dd>
+
+    <dt>
+        TotalCart
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.totalCart)
+    </dd>
+
+    <dt>
+        id_discountCode
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.id_discountCode)
+    </dd>
+
+</dl>
+
+<br />
+
+<button type="button" class="btn btn-warning btn-admin">
+    <a class="fa fa-edit"></a> &nbsp;
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.id_customer })
+</button>
+<button type="button" class="btn btn-warning btn-admin">
+    <a class="fa fa-th-list"></a> &nbsp;
+    @Html.ActionLink("Danh sách", "Index")
+</button>
