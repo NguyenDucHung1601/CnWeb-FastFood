@@ -139,8 +139,9 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
-    <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CustomerController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DiscountCodeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Models\CommonConstants.cs" />
@@ -152,6 +153,7 @@
     </Compile>
     <Compile Include="Models\Dao\Admin\CategoryDao.cs" />
     <Compile Include="Models\Dao\Admin\CustomerDao.cs" />
+    <Compile Include="Models\Dao\Admin\DiscountCodeDao.cs" />
     <Compile Include="Models\Dao\Admin\ProductDao.cs" />
     <Compile Include="Models\Dao\Admin\UserDao.cs" />
     <Compile Include="Models\EF\Bill.cs" />
@@ -171,6 +173,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Admin\Images\background.png" />
+    <Content Include="Assets\Admin\Images\big logo.png" />
     <Content Include="Assets\Admin\Images\logo.png" />
     <Content Include="Assets\Admin\LTE\bootstrap\css\bootstrap.css" />
     <Content Include="Assets\Admin\LTE\bootstrap\css\bootstrap.min.css" />
@@ -1109,11 +1113,14 @@
     <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Customers\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Customers\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Customers\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Customers\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Customers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Customer\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Customer\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Customer\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Customer\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DiscountCode\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DiscountCode\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DiscountCode\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DiscountCode\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

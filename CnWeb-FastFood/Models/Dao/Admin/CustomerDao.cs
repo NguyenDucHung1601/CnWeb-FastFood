@@ -1,20 +1,57 @@
 ﻿using CnWeb_FastFood.Models.EF;
+using PagedList;
+//using PagedList.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using PagedList;
 
 namespace CnWeb_FastFood.Models.Dao.Admin
 {
     public class CustomerDao
     {
-        SnackShopDBContext db = null;
+        SnackShopDBContext db;
+
         public CustomerDao()
         {
             db = new SnackShopDBContext();
         }
-        public int Delete(int? id)
+
+        public List<Customer> ListCustomer()
+        {
+            return db.Customers.ToList();
+        }
+
+        public Customer getByID(int id)
+        {
+            return db.Customers.Find(id);
+        }
+
+        public void Add(Customer customer)
+        {
+            db.Customers.Add(customer);
+            db.SaveChanges();
+        }
+
+        public void Edit(Customer customer)
+        {
+            Customer ctm = getByID(customer.id_customer);
+            if (ctm != null)
+            {
+                ctm.name = customer.name;
+                ctm.phone = customer.phone;
+                ctm.address = customer.address;
+                ctm.userName = customer.userName;
+                ctm.password = customer.password;
+                ctm.subtotalCart = customer.subtotalCart;
+                ctm.totalCart = customer.totalCart;
+                ctm.id_discountCode = customer.id_discountCode;
+
+                db.SaveChanges();
+            }
+        }
+
+        public int Delete(int id)
         {
             Customer customer = db.Customers.Find(id);
             if (customer != null)
@@ -30,15 +67,7 @@ namespace CnWeb_FastFood.Models.Dao.Admin
 
         public IEnumerable<Customer> ListCustomerPage(int PageNum, int PageSize)
         {
-            return db.Customers.OrderByDescending(c => c.id_customer).ToPagedList(PageNum, PageSize);
-        }
-
-        public void Add(Customer customer)
-        {
-            customer.subtotalCart = 0;
-            customer.totalCart = 0;
-            db.Customers.Add(customer);
-            db.SaveChanges();
+            return db.Customers.OrderBy(p => p.id_customer).ToPagedList(PageNum, PageSize);
         }
     }
 }

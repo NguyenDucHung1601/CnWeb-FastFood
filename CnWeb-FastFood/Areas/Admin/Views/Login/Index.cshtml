@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Log in</title>
+    <title>FastFood H&H | Đăng nhập</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.4 -->
@@ -26,18 +26,17 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="login-page">
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="../../index2.html">FASTFOOD <b>H&H</b></a>
-        </div><!-- /.login-logo -->
+<body class="login-page" style="background-image: url(/Assets/Admin/Images/background.png); background-repeat:repeat-x repeat-y">
+    <div class="login-box" style="box-shadow: 0px 0px 30px grey">
         <div class="login-box-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <img src="~/Assets/Admin/Images/big logo.png" style="margin-left:auto; margin-right:auto; display:block; width:220px; height:130px"/>
+            <br />
+            <p class="login-box-msg" style="font-size:15px; color:navy"><b>Đăng nhập để bắt đầu phiên làm việc</b></p>
             @using (Html.BeginForm("Login", "Login"))
             {
                 <div class="form-group has-feedback">
-                    <input name="inputUserName" type="text" class="form-control" placeholder="User name" />
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    <input name="inputUserName" type="text" class="form-control" placeholder="Username"/>
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
                     <input name="UserPassword" type="password" class="form-control" placeholder="Password" />
@@ -47,23 +46,15 @@
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
                             <label>
-                                <input type="checkbox"> Remember Me
+                                <input type="checkbox"> Nhớ mật khẩu
                             </label>
                         </div>
                     </div><!-- /.col -->
                     <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        <button type="submit" class="btn btn-warning btn-block btn-flat" style="border-radius:3px; color:white">Đăng nhập</button>
                     </div><!-- /.col -->
                 </div>
             }
-            <div class="social-auth-links text-center">
-                <p>- OR -</p>
-                <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
-                <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
-            </div><!-- /.social-auth-links -->
-
-            <a href="#">I forgot my password</a><br>
-            <a href="register.html" class="text-center">Register a new membership</a>
 
         </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
