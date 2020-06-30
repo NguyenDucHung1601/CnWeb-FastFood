@@ -32,5 +32,7 @@ namespace CnWeb_FastFood.Models.EF
 
         [StringLength(20)]
         public string id_userGroup { get; set; }
+
+        public virtual UserGroup UserGroup { get; set; }
     }
 }

@@ -70,5 +70,14 @@ namespace CnWeb_FastFood.Models.Dao.Admin
                 return -1;
             }
         }
+
+        public bool ChangeAvailability( long id)
+        {
+            var user = db.Products.Find(id);
+            user.availability = !user.availability;
+            db.SaveChanges();
+            return user.availability;
+        }
+       
     }
 }

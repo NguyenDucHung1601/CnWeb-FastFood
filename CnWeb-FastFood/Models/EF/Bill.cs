@@ -31,7 +31,15 @@ namespace CnWeb_FastFood.Models.EF
 
         public decimal? discount { get; set; }
 
-        public byte status { get; set; }
+        [StringLength(500)]
+        public string address { get; set; }
+
+        [StringLength(10)]
+        public string phone { get; set; }
+
+        public int? id_status { get; set; }
+
+        public virtual BillStatu BillStatu { get; set; }
 
         public virtual Customer Customer { get; set; }
 

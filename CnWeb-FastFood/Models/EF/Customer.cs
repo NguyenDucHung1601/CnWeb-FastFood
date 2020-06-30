@@ -1,4 +1,4 @@
-﻿namespace CnWeb_FastFood.Models.EF
+namespace CnWeb_FastFood.Models.EF
 {
     using System;
     using System.Collections.Generic;
@@ -20,32 +20,28 @@
         public int id_customer { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Tên khách hàng")]
         public string name { get; set; }
 
         [StringLength(10)]
-        [Display(Name = "Điện thoại")]
         public string phone { get; set; }
 
         [StringLength(200)]
-        [Display(Name = "Địa chỉ")]
         public string address { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Tên đăng nhập")]
         public string userName { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Mật khẩu")]
         public string password { get; set; }
 
-        [Display(Name = "Tổng")]
         public decimal? subtotalCart { get; set; }
 
-        [Display(Name = "Tổng tiền")]
         public decimal? totalCart { get; set; }
+
+        [StringLength(10)]
+        public string avatar { get; set; }
 
         [StringLength(20)]
         public string id_discountCode { get; set; }
