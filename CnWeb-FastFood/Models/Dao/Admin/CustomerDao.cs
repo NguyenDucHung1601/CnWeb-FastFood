@@ -1,6 +1,5 @@
 ﻿using CnWeb_FastFood.Models.EF;
 using PagedList;
-//using PagedList.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,9 +64,101 @@ namespace CnWeb_FastFood.Models.Dao.Admin
             }
         }
 
-        public IEnumerable<Customer> ListCustomerPage(int PageNum, int PageSize)
+        public IEnumerable<Customer> ListSimple(string searching)
         {
-            return db.Customers.OrderBy(p => p.id_customer).ToPagedList(PageNum, PageSize);
+            var list = db.Database.SqlQuery<Customer>($"SELECT * FROM dbo.Customer c " +
+                $"WHERE c.id_customer LIKE N'%{searching}%' " +
+                $"OR c.name LIKE N'%{searching}%' " +
+                $"OR c.phone LIKE N'%{searching}%' " +
+                $"OR c.address LIKE N'%{searching}%' " +
+                $"OR c.userName LIKE N'%{searching}%'").ToList();
+
+
+            return list;
+        }
+
+        public IEnumerable<Customer> ListSimpleSearch(int PageNum, int PageSize, string searching)
+        {
+            var list = db.Database.SqlQuery<Customer>($"SELECT * FROM dbo.Customer c " +
+               $"WHERE c.id_customer LIKE N'%{searching}%' " +
+               $"OR c.name LIKE N'%{searching}%' " +
+               $"OR c.phone LIKE N'%{searching}%' " +
+               $"OR c.address LIKE N'%{searching}%' " +
+               $"OR c.userName LIKE N'%{searching}%'").ToPagedList<Customer>(PageNum, PageSize);
+
+            return list;
+        }
+
+        public IEnumerable<Customer> ListAdvanced(string idCustomer, string name, string phone, string address, string username)
+        {
+            string querySearch = "SELECT * FROM dbo.Customer c ";
+
+            string queryCondition = "";
+            if (idCustomer != "" && idCustomer != null)
+            {
+                queryCondition += $" AND c.id_customer LIKE N'%{idCustomer}%'";
+            }
+            if (name != "" && name != null)
+            {
+                queryCondition += $" AND c.name LIKE N'%{name}%'";
+            }
+            if (phone != "" && phone != null)
+            {
+                queryCondition += $" AND c.phone LIKE N'%{phone}%'";
+            }
+            if (address != "" && address != null)
+            {
+                queryCondition += $" AND c.address LIKE N'%{address}%'";
+            }
+            if (username != "" && username != null)
+            {
+                queryCondition += $" AND c.userName LIKE N'%{username}%'";
+            }
+
+            if (!queryCondition.Equals(""))
+            {
+                querySearch = querySearch + " WHERE" + queryCondition.Remove(0, 4);
+            }
+
+            var list = db.Database.SqlQuery<Customer>(querySearch).ToList();
+
+            return list;
+        }
+
+        public IEnumerable<Customer> ListAdvancedSearch(int PageNum, int PageSize, string idCustomer, string name, string phone, string address, string username)
+        {
+            string querySearch = "SELECT * FROM dbo.Customer c ";
+
+            string queryCondition = "";
+            if (idCustomer != "" && idCustomer != null)
+            {
+                queryCondition += $" AND c.id_customer LIKE N'%{idCustomer}%'";
+            }
+            if (name != "" && name != null)
+            {
+                queryCondition += $" AND c.name LIKE N'%{name}%'";
+            }
+            if (phone != "" && phone != null)
+            {
+                queryCondition += $" AND c.phone LIKE N'%{phone}%'";
+            }
+            if (address != "" && address != null)
+            {
+                queryCondition += $" AND c.address LIKE N'%{address}%'";
+            }
+            if (username != "" && username != null)
+            {
+                queryCondition += $" AND c.userName LIKE N'%{username}%'";
+            }
+
+            if (!queryCondition.Equals(""))
+            {
+                querySearch = querySearch + " WHERE" + queryCondition.Remove(0, 4);
+            }
+
+            var list = db.Database.SqlQuery<Customer>(querySearch).ToPagedList<Customer>(PageNum, PageSize);
+
+            return list;
         }
     }
 }

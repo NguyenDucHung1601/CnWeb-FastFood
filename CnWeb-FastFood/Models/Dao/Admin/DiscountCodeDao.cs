@@ -1,6 +1,5 @@
 ﻿using CnWeb_FastFood.Models.EF;
 using PagedList;
-//using PagedList.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,11 +57,22 @@ namespace CnWeb_FastFood.Models.Dao.Admin
             }
         }
 
-        //public IEnumerable<Product> ListDiscountCodePage(int PageNum, int PageSize)
-        //{
-        //    return db.DiscountCodes.OrderBy(p => p.id_discountCode).ToPagedList(PageNum, PageSize);
-        //}
+        public IEnumerable<DiscountCode> ListSimple(string searching)
+        {
+            var list = db.Database.SqlQuery<DiscountCode>($"SELECT * FROM dbo.DiscountCode d " +
+                $"WHERE d.id_discountCode LIKE N'%{searching}%' OR d.discount LIKE N'%{searching}%'").ToList();
 
-        
+
+            return list;
+        }
+
+        public IEnumerable<DiscountCode> ListSimpleSearch(int PageNum, int PageSize, string searching)
+        {
+            var list = db.Database.SqlQuery<DiscountCode>($"SELECT * FROM dbo.DiscountCode d " +
+                $"WHERE d.id_discountCode LIKE N'%{searching}%' OR d.discount LIKE N'%{searching}%'").ToPagedList<DiscountCode>(PageNum, PageSize);
+
+            return list;
+        }
+
     }
 }

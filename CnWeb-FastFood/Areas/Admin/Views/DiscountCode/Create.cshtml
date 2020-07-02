@@ -7,7 +7,7 @@
 
 @section header
 {
-    Mã giảm giá - Thêm mới mã giảm giá
+    Mã giảm giá - Thêm mã giảm giá
 }
 
 
@@ -28,7 +28,7 @@
         <div class="form-group">
             <div class="col-md-10">
                 <label for="exampleInputEmail1">Số tiền giảm giá (VNĐ)</label>
-                <input type="number" step="1000" class="form-control" name="discount" placeholder="Nhập số tiền giảm giả ..." value=" @Html.DisplayFor(model => model.discount)">
+                <input type="number" min="0" step="1000" class="form-control" name="discount" placeholder="Nhập số tiền giảm giả ..." value=" @Html.DisplayFor(model => model.discount)">
             </div>
         </div>
 
