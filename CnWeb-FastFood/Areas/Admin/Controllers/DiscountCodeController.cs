@@ -1,15 +1,10 @@
 ﻿using CnWeb_FastFood.Models.Dao.Admin;
 using CnWeb_FastFood.Models.EF;
-using PagedList;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Data;
-using System.Data.Entity;
-using System.Text;
 
 
 namespace CnWeb_FastFood.Areas.Admin.Controllers
@@ -20,9 +15,9 @@ namespace CnWeb_FastFood.Areas.Admin.Controllers
         DiscountCodeDao dao = new DiscountCodeDao();
 
         // GET: Admin/Customer
-        public ActionResult Index(int? page, int? PageSize)
+        public ActionResult Index(int? page, int? PageSize, string searching = "")
         {
-            var customer = db.DiscountCodes.OrderBy(e => e.id_discountCode).Count();
+            ViewBag.SearchString = searching;
             ViewBag.PageSize = new List<SelectListItem>()
             {
                 new SelectListItem() { Value="10", Text= "10" },
@@ -34,8 +29,8 @@ namespace CnWeb_FastFood.Areas.Admin.Controllers
             int pageNumber = (page ?? 1);
             int pagesize = (PageSize ?? 10);
             ViewBag.psize = pagesize;
-            ViewBag.Count = customer;
-            return View(db.DiscountCodes.OrderBy(c => c.id_discountCode).ToList().ToPagedList(pageNumber, pagesize));
+            ViewBag.Count = dao.ListSimple(searching).Count();
+            return View(dao.ListSimpleSearch(pageNumber, pagesize, searching));
         }
 
         public ActionResult Details(string id)

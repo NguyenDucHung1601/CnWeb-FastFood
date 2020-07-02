@@ -13,9 +13,22 @@ namespace CnWeb_FastFood.Areas.Admin.Controllers
         CategoryDao dao = new CategoryDao();
 
         // GET: Admin/Category
-        public ActionResult Index()
+        public ActionResult Index(int? page, int? PageSize, string searching = "")
         {
-            return View(dao.ListCategory());
+            ViewBag.SearchString = searching;
+            ViewBag.PageSize = new List<SelectListItem>()
+            {
+                new SelectListItem() { Value="10", Text= "10" },
+                new SelectListItem() { Value="15", Text= "15" },
+                new SelectListItem() { Value="20", Text= "20" },
+                new SelectListItem() { Value="25", Text= "25" },
+                new SelectListItem() { Value="50", Text= "50" }
+            };
+            int pageNumber = (page ?? 1);
+            int pagesize = (PageSize ?? 10);
+            ViewBag.psize = pagesize;
+            ViewBag.Count = dao.ListSimple(searching).Count();
+            return View(dao.ListSimpleSearch(pageNumber, pagesize, searching));
         }
 
         public ActionResult Details(int id)
