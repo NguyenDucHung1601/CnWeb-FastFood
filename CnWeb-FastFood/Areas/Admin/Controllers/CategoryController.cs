@@ -6,15 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-
 namespace CnWeb_FastFood.Areas.Admin.Controllers
 {
-    public class DiscountCodeController : Controller
+    public class CategoryController : Controller
     {
-        SnackShopDBContext db = new SnackShopDBContext();
-        DiscountCodeDao dao = new DiscountCodeDao();
+        CategoryDao dao = new CategoryDao();
 
-        // GET: Admin/Customer
+        // GET: Admin/Category
         public ActionResult Index(int? page, int? PageSize, string searching = "")
         {
             ViewBag.SearchString = searching;
@@ -33,10 +31,10 @@ namespace CnWeb_FastFood.Areas.Admin.Controllers
             return View(dao.ListSimpleSearch(pageNumber, pagesize, searching));
         }
 
-        public ActionResult Details(string id)
+        public ActionResult Details(int id)
         {
-            DiscountCode discount = dao.getByID(id);
-            return View(discount);
+            Category category = dao.getByID(id);
+            return View(category);
         }
 
         public ActionResult Create()
@@ -45,46 +43,45 @@ namespace CnWeb_FastFood.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(string id, string discount)
+        public ActionResult Create(string name)
         {
-            DiscountCode discountCode = new DiscountCode();
-            discountCode.id_discountCode = id;
-            discountCode.discount = Convert.ToDecimal(discount);
+            Category category = new Category();
+            category.name = name;
 
             if (ModelState.IsValid)
             {
-                dao.Add(discountCode);
+                dao.Add(category);
                 return RedirectToAction("Index");
             }
             else
             {
-                return View(discountCode);
+                return View(category);
             }
         }
 
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
             return View(dao.getByID(id));
         }
 
         [HttpPost]
-        public ActionResult Edit(string id, string discount)
+        public ActionResult Edit(int id, string name)
         {
-            DiscountCode discountCode = dao.getByID(id);
-            discountCode.discount = Convert.ToDecimal(discount);
+            Category category = dao.getByID(id);
+            category.name = name;
 
             if (ModelState.IsValid)
             {
-                dao.Edit(discountCode);
+                dao.Edit(category);
                 return RedirectToAction("Index");
             }
             else
             {
-                return View(discountCode);
+                return View(category);
             }
         }
 
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
             dao.Delete(id);
             return RedirectToAction("Index");

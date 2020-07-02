@@ -1,6 +1,5 @@
 ﻿using CnWeb_FastFood.Models.EF;
 using PagedList;
-//using PagedList.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,12 +82,144 @@ namespace CnWeb_FastFood.Models.Dao.Admin
        
         public IEnumerable<Product> ListProductPage(int PageNum, int PageSize)
         {
-            return db.Products.OrderBy(p=>p.id_product).ToPagedList(PageNum, PageSize);
+            return db.Products.OrderBy(p => p.id_product).ToPagedList(PageNum, PageSize);
         }
 
-        public IEnumerable<Product> ListProductSimpleSearch(string SearchString)
+        public IEnumerable<ProductView> ListSimple(string searching)
         {
-            List<Product> list = db.Database.SqlQuery<Product>("SELECT name FROM dbo.Product").ToList();
+            var list = db.Database.SqlQuery<ProductView>($"SELECT p.id_product, p.name as productName, c.name as categoryName, p.availability, p.price, p.salePercent, p.salePrice, p.rate, p.mainPhoto, p.updated " +
+                $"FROM dbo.Product p LEFT JOIN dbo.Category c ON c.id_category = p.id_category " +
+                $"WHERE p.id_product LIKE N'%{searching}%' " +
+                $"OR p.name LIKE N'%{searching}%' " +
+                $"OR c.name LIKE N'%{searching}%' " +
+                $"OR p.availability LIKE N'%{searching}%' " +
+                $"OR p.price LIKE N'%{searching}%' " +
+                $"OR p.salePercent LIKE N'%{searching}%' " +
+                $"OR p.salePrice LIKE N'%{searching}%' " +
+                $"OR p.rate LIKE N'%{searching}%' " +
+                $"OR p.updated LIKE N'%{searching}%'").ToList();
+
+            return list;
+        }
+
+        public IEnumerable<ProductView> ListSimpleSearch(int PageNum, int PageSize, string searching)
+        {
+            var list = db.Database.SqlQuery<ProductView>($"SELECT p.id_product, p.name as productName, c.name as categoryName, p.availability, p.price, p.salePercent, p.salePrice, p.rate, p.mainPhoto, p.updated " +
+                $"FROM dbo.Product p LEFT JOIN dbo.Category c ON c.id_category = p.id_category " +
+                $"WHERE p.id_product LIKE N'%{searching}%' " +
+                $"OR p.name LIKE N'%{searching}%' " +
+                $"OR c.name LIKE N'%{searching}%' " +
+                $"OR p.availability LIKE N'%{searching}%' " +
+                $"OR p.price LIKE N'%{searching}%' " +
+                $"OR p.salePercent LIKE N'%{searching}%' " +
+                $"OR p.salePrice LIKE N'%{searching}%' " +
+                $"OR p.rate LIKE N'%{searching}%' " +
+                $"OR p.updated LIKE N'%{searching}%'").ToPagedList<ProductView>(PageNum, PageSize);
+
+            return list;
+        }
+
+        public IEnumerable<ProductView> ListAdvanced(string idProduct, string name, string category, string availability, string priceFrom, string priceTo, string salePercentFrom, string salePercentTo, string salePriceFrom, string salePriceTo, string rateFrom, string rateTo)
+        {
+            string querySearch = "SELECT p.id_product, p.name as productName, c.name as categoryName, p.availability, p.price, p.salePercent, p.salePrice, p.rate, p.mainPhoto, p.updated " +
+                 $"FROM dbo.Product p LEFT JOIN dbo.Category c ON c.id_category = p.id_category ";
+
+            string queryCondition = "";
+            if (idProduct != "" && idProduct != null)
+            {
+                queryCondition += $" AND p.id_product LIKE N'%{idProduct}%'";
+            }
+            if (name != "" && name != null)
+            {
+                queryCondition += $" AND p.name LIKE N'%{name}%'";
+            }
+            if (category != "" && category != null)
+            {
+                queryCondition += $" AND p.id_category = {category}";
+            }
+            if (availability != "" && availability != null)
+            {
+                if (availability == "True")
+                    queryCondition += $" AND p.availability = 1";
+                else
+                    queryCondition += $" AND p.availability = 0";
+            }
+            if (priceFrom != null && priceTo != null && priceFrom != "" && priceTo != "" && Convert.ToDecimal(priceFrom) <= Convert.ToDecimal(priceTo))
+            {
+                queryCondition += $" AND p.price >= {priceFrom} AND p.price <= {priceTo}";
+            }
+            if (salePercentFrom != null && salePercentTo != null && salePercentFrom != "" && salePercentTo != "" && Convert.ToInt32(salePercentFrom) <= Convert.ToInt32(salePercentTo))
+            {
+                queryCondition += $" AND p.salePercent >= {salePercentFrom} AND p.salePercent <= {salePercentTo}";
+            }
+            if (salePriceFrom != null && salePriceTo != null && salePriceFrom != "" && salePriceTo != "" && Convert.ToDecimal(salePriceFrom) <= Convert.ToDecimal(salePriceTo))
+            {
+                queryCondition += $" AND p.salePrice >= {salePriceFrom} AND p.salePrice <= {salePriceTo}";
+            }
+            if (rateFrom != null && rateTo != null && rateFrom != "" && rateTo != null && Convert.ToDouble(rateFrom) <= Convert.ToDouble(rateTo))
+            {
+                queryCondition += $" AND p.rate >= {rateFrom} AND p.rate<={rateTo}";
+            }
+
+            if (!queryCondition.Equals(""))
+            {
+                querySearch = querySearch + " WHERE" + queryCondition.Remove(0, 4);
+            }
+
+            var list = db.Database.SqlQuery<ProductView>(querySearch).ToList();
+
+            return list;
+        }
+
+        public IEnumerable<ProductView> ListAdvancedSearch(int PageNum, int PageSize, string idProduct, string name, string category, string availability, string priceFrom, string priceTo, string salePercentFrom, string salePercentTo, string salePriceFrom, string salePriceTo, string rateFrom, string rateTo)
+        {
+            string querySearch = "SELECT p.id_product, p.name as productName, c.name as categoryName, p.availability, p.price, p.salePercent, p.salePrice, p.rate, p.mainPhoto, p.updated " +
+                 $"FROM dbo.Product p LEFT JOIN dbo.Category c ON c.id_category = p.id_category ";
+
+            string queryCondition = "";
+            if (idProduct != "" && idProduct != null)
+            {
+                queryCondition += $" AND p.id_product LIKE N'%{idProduct}%'";
+            }
+            if (name != "" && name != null)
+            {
+                queryCondition += $" AND p.name LIKE N'%{name}%'";
+            }
+            if (category != "" && category != null)
+            {
+                queryCondition += $" AND p.id_category = {category}";
+            }
+            if (availability != "" && availability != null)
+            {
+                if (availability == "True")
+                    queryCondition += $" AND p.availability = 1";
+                else
+                    queryCondition += $" AND p.availability = 0";
+            }
+            if (priceFrom != null && priceTo != null && priceFrom != "" && priceTo != "" && Convert.ToDecimal(priceFrom) <= Convert.ToDecimal(priceTo))
+            {
+                queryCondition += $" AND p.price >= {priceFrom} AND p.price <= {priceTo}";
+            }
+            if (salePercentFrom != null && salePercentTo != null && salePercentFrom != "" && salePercentTo != "" && Convert.ToInt32(salePercentFrom) <= Convert.ToInt32(salePercentTo))
+            {
+                queryCondition += $" AND p.salePercent >= {salePercentFrom} AND p.salePercent <= {salePercentTo}";
+            }
+            if (salePriceFrom != null && salePriceTo != null && salePriceFrom != "" && salePriceTo != "" && Convert.ToDecimal(salePriceFrom) <= Convert.ToDecimal(salePriceTo))
+            {
+                queryCondition += $" AND p.salePrice >= {salePriceFrom} AND p.salePrice <= {salePriceTo}";
+            }
+            if (rateFrom != null && rateTo != null && rateFrom != "" && rateTo != "" && Convert.ToDouble(rateFrom) <= Convert.ToDouble(rateTo))
+            {
+                queryCondition += $" AND p.rate >= {rateFrom} AND p.rate<={rateTo}";
+            }
+
+            if (!queryCondition.Equals(""))
+            {
+                querySearch = querySearch + " WHERE" + queryCondition.Remove(0, 4);
+            }
+
+            var list = db.Database.SqlQuery<ProductView>(querySearch).ToPagedList<ProductView>(PageNum, PageSize);
+
             return list;
         }
     }

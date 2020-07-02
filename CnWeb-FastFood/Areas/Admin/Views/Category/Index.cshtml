@@ -1,27 +1,20 @@
-﻿@model PagedList.IPagedList<CnWeb_FastFood.Models.EF.Customer>
-@using PagedList.Mvc;
+﻿@model PagedList.IPagedList<CnWeb_FastFood.Models.EF.Category>
+@using PagedList.Mvc
 
 @{
-    /**/
-
-    /**/
-
-    /**/
-
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 @section header
 {
-    Danh sách khách hàng
+    Danh sách thể loại
 }
-
 
 <table style="width:100%; margin-bottom:10px">
     <tr>
         <td>
-            @using (Html.BeginForm("Index", "Customer", FormMethod.Get, new { id = "form1" }))
+            @using (Html.BeginForm("Index", "Category", FormMethod.Get, new { id = "form1" }))
             {
                 <p style="float:left; color:navy; height:32px"><b>Hiển thị &nbsp; </b>@Html.DropDownList("pageSize") &nbsp; <b>bản ghi / trang </b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 
@@ -32,11 +25,7 @@
         <td>
             <button type="button" class="btn btn-warning btn-admin" style="margin-bottom:10px; margin-left:5px; float: right; width:110px">
                 <i class="fa fa-plus-square"></i> &nbsp;
-                @Html.ActionLink("Thêm mới", "Create", "Product")
-            </button>
-            <button type="button" class="btn btn-warning btn-admin" style="margin-bottom:10px; float: right; width:110px">
-                <i class="fa fa-filter"></i> &nbsp;
-                @Html.ActionLink("Bộ lọc", "Filter", "Customer")
+                @Html.ActionLink("Thêm mới", "Create", "Category")
             </button>
         </td>
     </tr>
@@ -45,12 +34,8 @@
 <table id="example1" class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th>Mã khách hàng</th>
-            <th>Tên khách hàng</th>
-            <th>Số điện thoại</th>
-            <th>Địa chỉ</th>
-            <th>UserName</th>
-            <th>Avatar</th>
+            <th>Mã thể loại</th>
+            <th>Tên hể loại</th>
             <th>Chức năng</th>
         </tr>
     </thead>
@@ -59,37 +44,26 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.id_customer)
+                    @Html.DisplayFor(modelItem => item.id_category)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.phone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.userName)
-                </td>
-                <td>
-                    <img height="20" src="~/Areas/Admin/Content/Photos/@item.avatar" alt="Chưa có" />
-                </td>
-                <td>
                     <i class="fa fa-info-circle"></i> &nbsp;
-                    @Html.ActionLink("Xem", "Details", new { id = item.id_customer }) @*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*@
-                    @*<i class="fa fa-edit"></i> &nbsp;
-                    @Html.ActionLink("Sửa", "Edit", new { id = item.id_customer }) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.ActionLink("Xem", "Details", new { id = item.id_category }) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <i class="fa fa-edit"></i> &nbsp;
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.id_category }) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <i class="fa fa-trash"></i> &nbsp;
-                    @Html.ActionLink("Xóa", "Delete", new { id = item.id_customer }, new { onclick = "return confirm('Chắc chắn muốn xoá?');" })*@
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.id_category }, new { onclick = "return confirm('Chắc chắn muốn xoá?');" })
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-@using (Html.BeginForm("Index", "Customer", FormMethod.Get, new { id = "form1" }))
+
+@using (Html.BeginForm("Index", "Category", FormMethod.Get, new { id = "form1" }))
 {
     <div class="pager">
         <table style="width:100%">
@@ -110,7 +84,6 @@
                     </b>
                 </td>
                 <td style="float:right; margin-top:-20px">
-                    
                     @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize = ViewBag.psize, @searching = @ViewBag.SearchString }))
                 </td>
             </tr>

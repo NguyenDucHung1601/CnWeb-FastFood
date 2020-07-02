@@ -2,39 +2,71 @@
 @using PagedList.Mvc;
 
 @{
-    /**/
-
-    /**/
-
-    /**/
-
-    ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+                ViewBag.Title = "Index";
+                Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 @section header
 {
-    Danh sách khách hàng
+    Danh sách khách hàng (đã qua bộ lọc)
 }
 
+<div style="background-color:antiquewhite; padding-left: 10px; padding-top: 3px; border-radius: 12px;">
+    <table style="width:100%">
+        <col style="width:25%">
+        <col style="width:25%">
+        <col style="width:25%">
+        <col style="width:25%">
+        <tr>
+            <td>
+                <b style="float:left">Mã khách hàng: &nbsp;&nbsp;</b> <p style="color: crimson"><b>@ViewBag.IdCustomer</b></p>
+            </td>
+            <td>
+                <b style="float:left">Số điện thoại: &nbsp;&nbsp;</b> <p style="color: crimson"><b>@ViewBag.CustomerPhone</b></p>
+            </td>
+            <td>
+                <b style="float:left">UserName: &nbsp;&nbsp;</b> <p style="color: crimson"><b>@ViewBag.CustomerUserName</b></p>
+            </td>
+            <td>
+                <b> &nbsp;</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b style="float:left">Tên khách hàng: &nbsp;&nbsp;</b> <p style="color: crimson"><b>@ViewBag.CustomerName</b> </p>
+            </td>
+            <td>
+                <b style="float:left">Địa chỉ: &nbsp;&nbsp;</b> <p style="color: crimson"><b>@ViewBag.CustomerAddress</b> </p>
+            </td>
+            <td>
+                <b> &nbsp;</b>
+            </td>
+            <td>
+                <b> &nbsp;</b>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<br />
 
 <table style="width:100%; margin-bottom:10px">
     <tr>
         <td>
-            @using (Html.BeginForm("Index", "Customer", FormMethod.Get, new { id = "form1" }))
+            @using (Html.BeginForm("Index2", "Customer", FormMethod.Get, new { id = "form1" }))
             {
                 <p style="float:left; color:navy; height:32px"><b>Hiển thị &nbsp; </b>@Html.DropDownList("pageSize") &nbsp; <b>bản ghi / trang </b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 
-                <input type="text" name="searching" value="@ViewBag.SearchString" placeholder="Nhập thông tin tìm kiếm ..." style="width: 400px;" />
-                <input type="submit" value="Tìm kiếm" />
+                @*<input type="text" name="searching" value="@ViewBag.SearchString" placeholder="Nhập thông tin tìm kiếm ..." style="width: 400px;" />
+                    <input type="submit" value="Tìm kiếm" />*@
             }
         </td>
         <td>
-            <button type="button" class="btn btn-warning btn-admin" style="margin-bottom:10px; margin-left:5px; float: right; width:110px">
-                <i class="fa fa-plus-square"></i> &nbsp;
-                @Html.ActionLink("Thêm mới", "Create", "Product")
+            <button type="button" class="btn btn-primary btn-admin" style="margin-bottom:10px; margin-left:5px; float: right; width:110px">
+                <i class="fa fa-mail-reply"></i> &nbsp;
+                @Html.ActionLink("Trở về", "Index", "Customer")
             </button>
-            <button type="button" class="btn btn-warning btn-admin" style="margin-bottom:10px; float: right; width:110px">
+            <button type="button" class="btn btn-warning btn-admin" style="margin-bottom:10px; float: right; width: 110px">
                 <i class="fa fa-filter"></i> &nbsp;
                 @Html.ActionLink("Bộ lọc", "Filter", "Customer")
             </button>
@@ -89,7 +121,8 @@
     </tbody>
 </table>
 
-@using (Html.BeginForm("Index", "Customer", FormMethod.Get, new { id = "form1" }))
+
+@using (Html.BeginForm("Index2", "Customer", FormMethod.Get, new { id = "form1" }))
 {
     <div class="pager">
         <table style="width:100%">
@@ -110,8 +143,7 @@
                     </b>
                 </td>
                 <td style="float:right; margin-top:-20px">
-                    
-                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize = ViewBag.psize, @searching = @ViewBag.SearchString }))
+                    @Html.PagedListPager(Model, page => Url.Action("Index2", new { page, pageSize = ViewBag.psize, @idCustomer = @ViewBag.IdCustomer, @name = @ViewBag.CustomerName, @phone = @ViewBag.CustomerPhone, @address = @ViewBag.CustomerAddress, @username = @ViewBag.CustomerUserName }))
                 </td>
             </tr>
         </table>

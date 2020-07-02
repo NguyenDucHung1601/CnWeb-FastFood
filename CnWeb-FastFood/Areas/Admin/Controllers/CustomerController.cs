@@ -1,15 +1,10 @@
 ﻿using CnWeb_FastFood.Models.Dao.Admin;
 using CnWeb_FastFood.Models.EF;
-using PagedList;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Data;
-using System.Data.Entity;
-using System.Text;
 
 
 namespace CnWeb_FastFood.Areas.Admin.Controllers
@@ -20,9 +15,9 @@ namespace CnWeb_FastFood.Areas.Admin.Controllers
         CustomerDao Cdao = new CustomerDao();
 
         // GET: Admin/Customer
-        public ActionResult Index(int? page, int? PageSize)
+        public ActionResult Index(int? page, int? PageSize, string searching = "")
         {
-            var customer = db.Customers.OrderBy(e => e.id_customer).Count();
+            ViewBag.SearchString = searching;
             ViewBag.PageSize = new List<SelectListItem>()
             {
                 new SelectListItem() { Value="10", Text= "10" },
@@ -34,8 +29,36 @@ namespace CnWeb_FastFood.Areas.Admin.Controllers
             int pageNumber = (page ?? 1);
             int pagesize = (PageSize ?? 10);
             ViewBag.psize = pagesize;
-            ViewBag.Count = customer;
-            return View(db.Customers.OrderBy(c => c.id_customer).ToList().ToPagedList(pageNumber, pagesize));
+            ViewBag.Count = Cdao.ListSimple(searching).Count();
+            return View(Cdao.ListSimpleSearch(pageNumber, pagesize, searching));
+        }
+
+        public ActionResult Index2(int? page, int? PageSize, string idCustomer, string name, string phone, string address, string username)
+        {
+            ViewBag.IdCustomer = idCustomer;
+            ViewBag.CustomerName = name;
+            ViewBag.CustomerPhone = phone;
+            ViewBag.CustomerAddress = address;
+            ViewBag.CustomerUserName = username;
+
+            ViewBag.PageSize = new List<SelectListItem>()
+            {
+                new SelectListItem() { Value="10", Text= "10" },
+                new SelectListItem() { Value="15", Text= "15" },
+                new SelectListItem() { Value="20", Text= "20" },
+                new SelectListItem() { Value="25", Text= "25" },
+                new SelectListItem() { Value="50", Text= "50" }
+            };
+            int pageNumber = (page ?? 1);
+            int pagesize = (PageSize ?? 10);
+            ViewBag.psize = pagesize;
+            ViewBag.Count = Cdao.ListAdvanced(idCustomer, name, phone, address, username).Count();
+            return View(Cdao.ListAdvancedSearch(pageNumber, pagesize, idCustomer, name, phone, address, username));
+        }
+
+        public ActionResult Filter()
+        {
+            return View();
         }
 
         public ActionResult Details(int id)

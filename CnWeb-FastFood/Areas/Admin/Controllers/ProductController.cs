@@ -21,14 +21,41 @@ namespace CnWeb_FastFood.Areas.Admin.Controllers
         CategoryDao Cdao = new CategoryDao();
 
         // GET: Admin/Product
-        public ActionResult Index(int? page, int? PageSize, string search)
+
+        public ActionResult Index(int? page, int? PageSize, string searching = "")
         {
-            
-            IQueryable<Product> prod = db.Products;
-            if (!string.IsNullOrEmpty(search))
+            ViewBag.SearchString = searching;
+            ViewBag.PageSize = new List<SelectListItem>()
             {
-                prod = db.Products.Where(x => x.name.Contains(search));
-            }
+                new SelectListItem() { Value="10", Text= "10" },
+                new SelectListItem() { Value="15", Text= "15" },
+                new SelectListItem() { Value="20", Text= "20" },
+                new SelectListItem() { Value="25", Text= "25" },
+                new SelectListItem() { Value="50", Text= "50" }
+            };
+            int pageNumber = (page ?? 1);
+            int pagesize = (PageSize ?? 10);
+            ViewBag.psize = pagesize;
+            ViewBag.Count = Pdao.ListSimple(searching).Count();
+            return View(Pdao.ListSimpleSearch(pageNumber, pagesize, searching));
+        }
+
+        public ActionResult Index2(int? page, int? PageSize, string idProduct, string name, string category, string availability, string priceFrom, string priceTo, string salePercentFrom, string salePercentTo, string salePriceFrom, string salePriceTo, string rateFrom, string rateTo)
+        {
+            ViewBag.IdProduct = idProduct;
+            ViewBag.ProductName = name;
+            ViewBag.IdCategory = category;
+            if (category != "" && category != null)
+                ViewBag.CategoryName = Cdao.getByID(Convert.ToInt32(category)).name;
+            ViewBag.Availability = availability;
+            ViewBag.PriceFrom = priceFrom;
+            ViewBag.PriceTo = priceTo;
+            ViewBag.SalePercentFrom = salePercentFrom;
+            ViewBag.SalePercentTo = salePercentTo;
+            ViewBag.SalePriceForm = salePriceFrom;
+            ViewBag.SalePriceTo = salePriceTo;
+            ViewBag.RateFrom = rateFrom;
+            ViewBag.RateTo = rateTo;
 
             ViewBag.PageSize = new List<SelectListItem>()
             {
@@ -41,28 +68,18 @@ namespace CnWeb_FastFood.Areas.Admin.Controllers
             int pageNumber = (page ?? 1);
             int pagesize = (PageSize ?? 10);
             ViewBag.psize = pagesize;
-            ViewBag.Count = prod.Count();
-            ViewBag.search = search;
-            return View(prod.OrderByDescending(x =>x.id_product).ToPagedList(pageNumber, pagesize));
+            ViewBag.Count = Pdao.ListAdvanced(idProduct, name, category, availability, priceFrom, priceTo, salePercentFrom, salePercentTo, salePriceFrom, salePriceTo, rateFrom, rateTo).Count();
+            return View(Pdao.ListAdvancedSearch(pageNumber, pagesize, idProduct, name, category, availability, priceFrom, priceTo, salePercentFrom, salePercentTo, salePriceFrom, salePriceTo, rateFrom, rateTo));
         }
 
-        //public ActionResult Index(int? page, int? PageSize, string searching)
-        //{
-        //    var employee = db.Products.OrderBy(e => e.id_product).Count();
-        //    ViewBag.PageSize = new List<SelectListItem>()
-        //    {
-        //        new SelectListItem() { Value="10", Text= "10" },
-        //        new SelectListItem() { Value="15", Text= "15" },
-        //        new SelectListItem() { Value="20", Text= "20" },
-        //        new SelectListItem() { Value="25", Text= "25" },
-        //        new SelectListItem() { Value="50", Text= "50" }
-        //    };
-        //    int pageNumber = (page ?? 1);
-        //    int pagesize = (PageSize ?? 10);
-        //    ViewBag.psize = pagesize;
-        //    ViewBag.Count = employee;
-        //    return View(db.Products.Where(x => x.name.Contains(searching) || searching == null).OrderBy(x=>x.id_product).ToPagedList(pageNumber, pagesize));
-        //}
+        public ActionResult Filter()
+        {
+            List<Category> ctgr = Cdao.ListCategory();
+            SelectList categoryList = new SelectList(ctgr, "id_category", "name", "id_category");
+            ViewBag.CategoryList = categoryList;
+
+            return View();
+        }
 
         public ActionResult Details(int id)
         {
