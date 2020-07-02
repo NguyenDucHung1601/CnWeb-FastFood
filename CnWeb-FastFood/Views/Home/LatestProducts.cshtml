@@ -1,0 +1,26 @@
+﻿@model IEnumerable<CnWeb_FastFood.Models.EF.Product>
+
+<div class="latest-product__slider owl-carousel">
+    <div class="latest-prdouct__slider__item">
+        @{ var count = 1;}
+
+        @foreach (var item in Model)
+        {
+            <a href="#" class="latest-product__item">
+                <div class="latest-product__item__pic">
+                    <img src="~/Areas/Admin/Content/Photos/@item.mainPhoto" alt="">
+                </div>
+                <div class="latest-product__item__text">
+                    <h6>Crab Pool Security</h6>
+                    <span>$30.00</span>
+                </div>
+            </a>
+            if (++count == 4)
+            {
+            @:</div><<div class="latest-prdouct__slider__item">
+            count = 1;
+            }
+
+        }   
+    </div>
+</div>
