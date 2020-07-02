@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CnWeb_FastFood.Models.EF.BillDetail>
+
+<p>
+    @Html.ActionLink("Thêm chi tiết hóa đơn", "Create","BillDetails", new { @idBill = ViewBag.id_bill}, null)
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bill.discountCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.intoMoney)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.discriptionProductDetail)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bill.discountCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.intoMoney)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.discriptionProductDetail)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+        </td>
+    </tr>
+}
+
+</table>

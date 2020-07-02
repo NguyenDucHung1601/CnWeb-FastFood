@@ -72,6 +72,14 @@ namespace CnWeb_FastFood.Models.Dao.Admin
             }
         }
 
+        public bool ChangeAvailability( long id)
+        {
+            var user = db.Products.Find(id);
+            user.availability = !user.availability;
+            db.SaveChanges();
+            return user.availability;
+        }
+       
         public IEnumerable<Product> ListProductPage(int PageNum, int PageSize)
         {
             return db.Products.OrderBy(p => p.id_product).ToPagedList(PageNum, PageSize);
