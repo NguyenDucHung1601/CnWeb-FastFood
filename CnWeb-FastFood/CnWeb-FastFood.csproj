@@ -1371,6 +1371,13 @@
     <Content Include="Assets\Client\sass\_shoping-cart.scss" />
     <Content Include="Assets\Client\sass\_sidebar.scss" />
     <Content Include="Assets\Client\sass\_variable.scss" />
+    <Content Include="Assets\Client\Source\bootstrap-4.4.1-dist.zip" />
+    <Content Include="Assets\Client\Source\font-awesome-4.7.0.zip" />
+    <Content Include="Assets\Client\Source\jquery-nice-select-1.1.0.zip" />
+    <Content Include="Assets\Client\Source\jquery-ui-1.12.1.zip" />
+    <Content Include="Assets\Client\Source\OwlCarousel2-2.3.4.zip" />
+    <Content Include="Assets\Client\Source\sass.zip" />
+    <Content Include="Assets\Client\Source\SlickNav-master.zip" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1407,6 +1414,10 @@
     <Content Include="Views\Home\TopRatedProducts.cshtml" />
     <Content Include="Views\Home\ReviewProducts.cshtml" />
     <Content Include="Views\ShopDetail\Index.cshtml" />
+    <Content Include="Views\Shared\_BeginContentLayoutHome.cshtml" />
+    <Content Include="Views\Shared\_BeginContentLayoutOtherHome.cshtml" />
+    <Content Include="Views\Home\ProductFilterShow.cshtml" />
+    <Content Include="Views\Home\ListCategoryShow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

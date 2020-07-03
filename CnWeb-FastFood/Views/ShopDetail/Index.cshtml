@@ -5,6 +5,10 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
+@section Title{
+    FastFood H&H | Chi tiết sản phẩm
+}
+
 @section Styles{
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
@@ -144,7 +148,7 @@
                                 </li>
                             }
 
-                        }                        
+                        }
                         <li>
                             <b>Share on</b>
                             <div class="share">
@@ -177,7 +181,7 @@
                                 <p>
                                     @ViewBag.product.description
                                 </p>
-                                
+
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">

@@ -16,12 +16,16 @@
                     <span>$@item.price.00</span>
                 </div>
             </a>
-            if (++count == 4)
+            if (count == Model.Count())
+            {
+                break;
+            }
+            if (++count%3 ==1)
             {
             @:</div><div class="latest-prdouct__slider__item">
-            count = 1;
+                
             }
 
-        }   
+        }
     </div>
 </div>
