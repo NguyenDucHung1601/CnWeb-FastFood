@@ -1,7 +1,9 @@
-﻿using CnWeb_FastFood.Models.EF;
+﻿using CnWeb_FastFood.Models.Dao.Client;
+using CnWeb_FastFood.Models.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,9 +13,23 @@ namespace CnWeb_FastFood.Controllers
     {
         // GET: ShopDetail
         private SnackShopDBContext db = new SnackShopDBContext();
-        public ActionResult Index()
+        private ShopDetailDao SDdao = new ShopDetailDao();
+        public ActionResult Index(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
+            ViewBag.product = SDdao.GetProduct(id);
+            var productDetailList = SDdao.GetProductDetail(id);
+            if (productDetailList == null)
+            {
+                return HttpNotFound();
+            }            
+
+            return View(productDetailList);
+           
         }
 
         protected override void Dispose(bool disposing)

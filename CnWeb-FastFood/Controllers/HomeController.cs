@@ -59,16 +59,16 @@ namespace CnWeb_FastFood.Controllers
 
         public ActionResult LatestProducts()
         {
-            return PartialView(db.Products.OrderByDescending(p => p.updated).Take(5));
+            return PartialView(db.Products.OrderByDescending(p => p.updated).Take(9));
         }
         
         public ActionResult TopRatedProducts()
         {
-            return PartialView(db.Products.OrderByDescending(p => p.rate).Take(5));
+            return PartialView(db.Products.OrderByDescending(p => p.rate).Take(9));
         }
         public ActionResult ReviewProducts()
         {
-            return PartialView(db.Products.OrderByDescending(p => p.review).Take(5));
+            return PartialView(db.Products.OrderByDescending(p => p.review).Take(9));
         }
 
         protected override void Dispose(bool disposing)

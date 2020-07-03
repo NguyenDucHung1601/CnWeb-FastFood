@@ -9,10 +9,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@RenderSection("Title", required: true)</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-
-    <!-- Css Styles -->
     @RenderSection("Styles", required: false)
 
     
@@ -26,8 +22,9 @@
     @Html.Partial("_MainLayoutFooter")
 
     <!-- Js Plugins -->
-    @RenderSection("Scripts", required: false)
 
+    @RenderSection("Scripts", required: false)
+   
 </body>
 
 </html>

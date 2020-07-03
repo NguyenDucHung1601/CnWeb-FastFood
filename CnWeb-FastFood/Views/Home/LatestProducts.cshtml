@@ -6,19 +6,24 @@
 
         @foreach (var item in Model)
         {
-            <a href="#" class="latest-product__item">
+            
+            <a href="/ShopDetail/Index/@item.id_product" class="latest-product__item">
                 <div class="latest-product__item__pic">
                     <img src="~/Areas/Admin/Content/Photos/@item.mainPhoto" alt="">
                 </div>
                 <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
+                    <h6>@item.name</h6>
+                    <span>$@item.price.00</span>
                 </div>
             </a>
-            if (++count == 4)
+            if (count == Model.Count())
+            {
+                break;
+            }
+            if (++count%3 ==1)
             {
             @:</div><div class="latest-prdouct__slider__item">
-                count = 1;
+                
             }
 
         }
