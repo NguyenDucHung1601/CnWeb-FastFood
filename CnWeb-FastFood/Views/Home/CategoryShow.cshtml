@@ -1,0 +1,8 @@
+﻿@model IEnumerable<CnWeb_FastFood.Models.EF.Category>
+
+@foreach (var item in Model)
+{
+    <li>
+        @Html.DisplayFor(modelItem => item.name)
+    </li>
+}

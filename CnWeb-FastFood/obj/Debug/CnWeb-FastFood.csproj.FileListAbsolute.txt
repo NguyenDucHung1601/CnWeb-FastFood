@@ -137,6 +137,8 @@ C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFoo
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\Newtonsoft.Json.dll
+C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\PagedList.dll
+C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\PagedList.Mvc.dll
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\System.Web.Helpers.dll
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\System.Web.Mvc.dll
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\System.Web.Optimization.dll
@@ -147,6 +149,8 @@ C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFoo
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\WebGrease.dll
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\EntityFramework.xml
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\EntityFramework.SqlServer.xml
+C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\PagedList.xml
+C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\PagedList.Mvc.xml
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\System.Web.Helpers.xml
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\System.Web.Mvc.xml
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\System.Web.Optimization.xml
@@ -157,12 +161,8 @@ C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFoo
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\Newtonsoft.Json.xml
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\Antlr3.Runtime.pdb
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\obj\Debug\CnWeb-FastFood.csprojAssemblyReference.cache
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\obj\Debug\CnWeb-FastFood.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\obj\Debug\CnWeb-FastFood.csproj.CopyComplete
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\obj\Debug\CnWeb-FastFood.dll
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\obj\Debug\CnWeb-FastFood.pdb
-C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\obj\Debug\CnWeb-FastFood.csprojAssemblyReference.cache
-C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\PagedList.dll
-C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\PagedList.Mvc.dll
-C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\PagedList.xml
-C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\PagedList.Mvc.xml

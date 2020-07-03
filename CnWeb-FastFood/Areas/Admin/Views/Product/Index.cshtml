@@ -2,14 +2,9 @@
 @using PagedList.Mvc
 
 @{
-    /**/
 
-    /**/
-
-    /**/
-
-    ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+                ViewBag.Title = "Index";
+                Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 @section header
@@ -22,7 +17,7 @@
         <td>
             @using (Html.BeginForm("Index", "Product", FormMethod.Get, new { id = "form1" }))
             {
-            <p style="float:left; color:navy; height:32px"><b>Hiển thị &nbsp; </b>@Html.DropDownList("pageSize") &nbsp; <b>bản ghi / trang </b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <p style="float:left; color:navy; height:32px"><b>Hiển thị &nbsp; </b>@Html.DropDownList("pageSize") &nbsp; <b>bản ghi / trang </b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 
                 <input type="text" name="searching" value="@ViewBag.SearchString" placeholder="Nhập thông tin tìm kiếm ..." style="width: 400px;" />
                 <input type="submit" value="Tìm kiếm" />
