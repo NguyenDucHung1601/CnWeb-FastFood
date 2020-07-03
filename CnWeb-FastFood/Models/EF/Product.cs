@@ -27,7 +27,7 @@ namespace CnWeb_FastFood.Models.EF
 
         public string information { get; set; }
 
-        public string review { get; set; }
+        public int? review { get; set; }
 
         public bool availability { get; set; }
 

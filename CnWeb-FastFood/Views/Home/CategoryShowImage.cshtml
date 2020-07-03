@@ -2,12 +2,9 @@
 
 @foreach (var item in Model)
 {
-<li>
     <div class="col-lg-3">
-        <div class="categories__item set-bg" data-setbg="/Assets/Client/img/categories/@item.photo">
-            <h5><a href="#">Fresh Fruit</a></h5>
+        <div class="categories__item set-bg" data-setbg="/Areas/Admin/Content/Photos/@item.photo">
+            <h5><a href="#">@item.name</a></h5>
         </div>
     </div>
-   
-</li>
 }

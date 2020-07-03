@@ -26,10 +26,10 @@ namespace CnWeb_FastFood.Controllers
             }
             if (!string.IsNullOrEmpty(searchString))
             {
-                list = db.Database.SqlQuery<ProductView>($"SELECT p.id_product, p.name as productName, c.name as categoryName, p.availability, p.price, p.salePercent, p.salePrice, p.rate, p.mainPhoto, p.updated " +
+                list = db.Database.SqlQuery<ProductView>($"SELECT p.id_product, p.name as productName, p.id_category, c.name as categoryName, p.availability, p.price, p.salePercent, p.salePrice, p.rate, p.mainPhoto, p.updated " +
                 $"FROM dbo.Product p LEFT JOIN dbo.Category c ON c.id_category = p.id_category where c.[name] LIKE N'%{catelogyString}%'").ToList();
             }
-            list = db.Database.SqlQuery<ProductView>($"SELECT p.id_product, p.name as productName, c.name as categoryName, p.availability, p.price, p.salePercent, p.salePrice, p.rate, p.mainPhoto, p.updated " +
+            list = db.Database.SqlQuery<ProductView>($"SELECT p.id_product, p.name as productName, p.id_category, c.name as categoryName, p.availability, p.price, p.salePercent, p.salePrice, p.rate, p.mainPhoto, p.updated " +
                 $"FROM dbo.Product p LEFT JOIN dbo.Category c ON c.id_category = p.id_category " +
                 $"WHERE c.[name] LIKE N'%{catelogyString}%' AND p.id_product LIKE N'%{searchString}%' " +
                 $"OR p.name LIKE N'%{searchString}%' " +
@@ -49,6 +49,10 @@ namespace CnWeb_FastFood.Controllers
             return PartialView(db.Categories.ToList());
         }
         public ActionResult CategoryShowImage()
+        {
+            return PartialView(db.Categories.ToList());
+        }
+        public ActionResult ListCategoryShow()
         {
             return PartialView(db.Categories.ToList());
         }

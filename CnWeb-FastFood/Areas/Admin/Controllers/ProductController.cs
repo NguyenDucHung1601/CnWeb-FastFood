@@ -103,7 +103,7 @@ namespace CnWeb_FastFood.Areas.Admin.Controllers
             product.name = name;
             product.description = description;
             product.information = information;
-            product.review = review;
+            product.review = Convert.ToInt32(review);
             product.availability = Convert.ToBoolean(availability);
             product.price = Convert.ToDecimal(price);
             product.salePercent = Convert.ToInt32(salePercent);
@@ -169,7 +169,7 @@ namespace CnWeb_FastFood.Areas.Admin.Controllers
             product.name = name;
             product.description = description;
             product.information = information;
-            product.review = review;
+            product.review = Convert.ToInt32(review);
             product.availability = Convert.ToBoolean(availability);
             product.price = Convert.ToDecimal(price);
             product.salePercent = Convert.ToInt32(salePercent);
