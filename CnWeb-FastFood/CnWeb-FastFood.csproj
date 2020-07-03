@@ -1107,6 +1107,7 @@
     <Content Include="Assets\Client\fonts\fontawesome-webfont.svg" />
     <Content Include="Assets\Client\img\banner\banner-1.jpg" />
     <Content Include="Assets\Client\img\banner\banner-2.jpg" />
+    <Content Include="Assets\Client\img\big logo.png" />
     <Content Include="Assets\Client\img\blog\blog-1.jpg" />
     <Content Include="Assets\Client\img\blog\blog-2.jpg" />
     <Content Include="Assets\Client\img\blog\blog-3.jpg" />
@@ -1128,6 +1129,7 @@
     <Content Include="Assets\Client\img\categories\cat-3.jpg" />
     <Content Include="Assets\Client\img\categories\cat-4.jpg" />
     <Content Include="Assets\Client\img\categories\cat-5.jpg" />
+    <Content Include="Assets\Client\img\contactus.png" />
     <Content Include="Assets\Client\img\featured\feature-1.jpg" />
     <Content Include="Assets\Client\img\featured\feature-2.jpg" />
     <Content Include="Assets\Client\img\featured\feature-3.jpg" />
@@ -1137,12 +1139,15 @@
     <Content Include="Assets\Client\img\featured\feature-7.jpg" />
     <Content Include="Assets\Client\img\featured\feature-8.jpg" />
     <Content Include="Assets\Client\img\hero\banner.jpg" />
+    <Content Include="Assets\Client\img\hero\banner.png" />
+    <Content Include="Assets\Client\img\hero\banner2.png" />
     <Content Include="Assets\Client\img\language.png" />
     <Content Include="Assets\Client\img\latest-product\lp-1.jpg" />
     <Content Include="Assets\Client\img\latest-product\lp-2.jpg" />
     <Content Include="Assets\Client\img\latest-product\lp-3.jpg" />
     <Content Include="Assets\Client\img\logo.png" />
     <Content Include="Assets\Client\img\payment-item.png" />
+    <Content Include="Assets\Client\img\payment.png" />
     <Content Include="Assets\Client\img\product\details\product-details-1.jpg" />
     <Content Include="Assets\Client\img\product\details\product-details-2.jpg" />
     <Content Include="Assets\Client\img\product\details\product-details-3.jpg" />
@@ -1170,6 +1175,7 @@
     <Content Include="Assets\Client\img\product\product-7.jpg" />
     <Content Include="Assets\Client\img\product\product-8.jpg" />
     <Content Include="Assets\Client\img\product\product-9.jpg" />
+    <Content Include="Assets\Client\img\ship.png" />
     <Content Include="Assets\Client\js\bootstrap.min.js" />
     <Content Include="Assets\Client\js\jquery-3.3.1.min.js" />
     <Content Include="Assets\Client\js\jquery-ui.min.js" />
@@ -1331,6 +1337,12 @@
     <Content Include="Areas\Admin\Views\Product\Index2.cshtml" />
     <Content Include="Areas\Admin\Views\Customer\Filter.cshtml" />
     <Content Include="Areas\Admin\Views\Customer\Index2.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Filter.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Index2.cshtml" />
     <Content Include="Assets\Client\fonts\ElegantIcons.eot" />
     <Content Include="Assets\Client\fonts\ElegantIcons.ttf" />
     <Content Include="Assets\Client\fonts\ElegantIcons.woff" />
@@ -1358,12 +1370,13 @@
     <Content Include="Assets\Client\sass\_shoping-cart.scss" />
     <Content Include="Assets\Client\sass\_sidebar.scss" />
     <Content Include="Assets\Client\sass\_variable.scss" />
-    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Bill\Filter.cshtml" />
-    <Content Include="Areas\Admin\Views\Bill\Index2.cshtml" />
+    <Content Include="Assets\Client\Source\bootstrap-4.4.1-dist.zip" />
+    <Content Include="Assets\Client\Source\font-awesome-4.7.0.zip" />
+    <Content Include="Assets\Client\Source\jquery-nice-select-1.1.0.zip" />
+    <Content Include="Assets\Client\Source\jquery-ui-1.12.1.zip" />
+    <Content Include="Assets\Client\Source\OwlCarousel2-2.3.4.zip" />
+    <Content Include="Assets\Client\Source\sass.zip" />
+    <Content Include="Assets\Client\Source\SlickNav-master.zip" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1399,6 +1412,10 @@
     <Content Include="Views\Home\LatestProducts.cshtml" />
     <Content Include="Views\Home\TopRatedProducts.cshtml" />
     <Content Include="Views\Home\ReviewProducts.cshtml" />
+    <Content Include="Views\Shared\_BeginContentLayoutHome.cshtml" />
+    <Content Include="Views\Shared\_BeginContentLayoutOtherHome.cshtml" />
+    <Content Include="Views\Home\ProductFilterShow.cshtml" />
+    <Content Include="Views\Home\ListCategoryShow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
