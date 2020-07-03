@@ -138,9 +138,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BillDetailsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\BillsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BillController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
-    <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomerController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\DiscountCodeController.cs" />
@@ -156,6 +156,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Dao\Admin\BillDao.cs" />
+    <Compile Include="Models\Dao\Admin\BillDetailDao.cs" />
+    <Compile Include="Models\Dao\Admin\BillStatusDao.cs" />
     <Compile Include="Models\Dao\Admin\CategoryDao.cs" />
     <Compile Include="Models\Dao\Admin\CustomerDao.cs" />
     <Compile Include="Models\Dao\Admin\DiscountCodeDao.cs" />
@@ -163,7 +165,8 @@
     <Compile Include="Models\Dao\Admin\UserDao.cs" />
     <Compile Include="Models\EF\Bill.cs" />
     <Compile Include="Models\EF\BillDetail.cs" />
-    <Compile Include="Models\EF\BillStatu.cs" />
+    <Compile Include="Models\EF\BillStatus.cs" />
+    <Compile Include="Models\EF\BillView.cs" />
     <Compile Include="Models\EF\Cart.cs" />
     <Compile Include="Models\EF\CartDetail.cs" />
     <Compile Include="Models\EF\Category.cs" />
@@ -1314,20 +1317,16 @@
     <Content Include="Areas\Admin\Views\DiscountCode\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DiscountCode\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DiscountCode\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Bills\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Bills\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Bills\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Bills\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Bills\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Bills\IndexBillDetail.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\IndexBillDetail.cshtml" />
     <Content Include="Areas\Admin\Views\BillDetails\Create.cshtml" />
     <Content Include="Areas\Admin\Views\BillDetails\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\BillDetails\Details.cshtml" />
     <Content Include="Areas\Admin\Views\BillDetails\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Categories\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Categories\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Categories\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Filter.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Index2.cshtml" />
     <Content Include="Areas\Admin\Views\Customer\Filter.cshtml" />
@@ -1359,6 +1358,12 @@
     <Content Include="Assets\Client\sass\_shoping-cart.scss" />
     <Content Include="Assets\Client\sass\_sidebar.scss" />
     <Content Include="Assets\Client\sass\_variable.scss" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Filter.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Index2.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

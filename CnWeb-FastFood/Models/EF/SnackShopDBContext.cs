@@ -14,7 +14,7 @@ namespace CnWeb_FastFood.Models.EF
 
         public virtual DbSet<Bill> Bills { get; set; }
         public virtual DbSet<BillDetail> BillDetails { get; set; }
-        public virtual DbSet<BillStatu> BillStatus { get; set; }
+        public virtual DbSet<BillStatus> BillStatus { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<CartDetail> CartDetails { get; set; }
         public virtual DbSet<Category> Categories { get; set; }

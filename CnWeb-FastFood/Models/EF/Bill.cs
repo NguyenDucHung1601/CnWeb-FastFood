@@ -39,7 +39,7 @@ namespace CnWeb_FastFood.Models.EF
 
         public int? id_status { get; set; }
 
-        public virtual BillStatu BillStatu { get; set; }
+        public virtual BillStatus BillStatus { get; set; }
 
         public virtual Customer Customer { get; set; }
 
