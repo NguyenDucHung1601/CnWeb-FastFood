@@ -1,4 +1,5 @@
-﻿using CnWeb_FastFood.Models.EF;
+﻿using CnWeb_FastFood.Models.Dao.Client;
+using CnWeb_FastFood.Models.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,21 @@ namespace CnWeb_FastFood.Controllers
     {
         // GET: ShopDetail
         private SnackShopDBContext db = new SnackShopDBContext();
-        public ActionResult Index()
+        private ShopDetailDao SDdao = new ShopDetailDao();
+        public ActionResult Index(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var product = SDdao.getProduct(id);
+            if (BillDetail == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.id_bill = id;
+
+            return PartialView(BillDetail);
             return View();
         }
 

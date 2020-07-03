@@ -161,6 +161,7 @@
     <Compile Include="Models\Dao\Admin\DiscountCodeDao.cs" />
     <Compile Include="Models\Dao\Admin\ProductDao.cs" />
     <Compile Include="Models\Dao\Admin\UserDao.cs" />
+    <Compile Include="Models\Dao\Client\ShopDetailDao.cs" />
     <Compile Include="Models\EF\Bill.cs" />
     <Compile Include="Models\EF\BillDetail.cs" />
     <Compile Include="Models\EF\BillStatu.cs" />
@@ -1401,7 +1402,6 @@
     <Folder Include="Areas\Client\Controllers\" />
     <Folder Include="Areas\Client\Models\" />
     <Folder Include="Areas\Client\Views\Shared\" />
-    <Folder Include="Models\Dao\Client\" />
     <Folder Include="Views\ShopDetail\" />
   </ItemGroup>
   <ItemGroup>
