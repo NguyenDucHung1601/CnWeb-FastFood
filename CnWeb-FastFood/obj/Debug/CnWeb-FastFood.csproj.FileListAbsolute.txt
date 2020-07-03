@@ -81,7 +81,6 @@ E:\Kì 2 năm 3\Cong nghe Web\CnWeb-FastFood\CnWeb-FastFood\bin\PagedList.dll
 E:\Kì 2 năm 3\Cong nghe Web\CnWeb-FastFood\CnWeb-FastFood\bin\PagedList.Mvc.dll
 E:\Kì 2 năm 3\Cong nghe Web\CnWeb-FastFood\CnWeb-FastFood\bin\PagedList.xml
 E:\Kì 2 năm 3\Cong nghe Web\CnWeb-FastFood\CnWeb-FastFood\bin\PagedList.Mvc.xml
-E:\Kì 2 năm 3\Cong nghe Web\CnWeb-FastFood\CnWeb-FastFood\obj\Debug\CnWeb-FastFood.csprojAssemblyReference.cache
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\CnWeb-FastFood.dll.config
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\CnWeb-FastFood.dll
 C:\Users\ADMIN\Desktop\BTL-CNWeb\Git CnWeb-FastFood\CnWeb-FastFood\CnWeb-FastFood\bin\CnWeb-FastFood.pdb

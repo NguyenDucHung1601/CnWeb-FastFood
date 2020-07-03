@@ -6,7 +6,8 @@
 
         @foreach (var item in Model)
         {
-            <a href="#" class="latest-product__item">
+            
+            <a href="/ShopDetail/Index/@item.id_product" class="latest-product__item">
                 <div class="latest-product__item__pic">
                     <img src="~/Areas/Admin/Content/Photos/@item.mainPhoto" alt="" style="width:130px; height:110px">
                 </div>
@@ -15,10 +16,14 @@
                     <span>@item.price VNĐ</span>
                 </div>
             </a>
-            if (++count == 4)
+            if (count == Model.Count())
+            {
+                break;
+            }
+            if (++count%3 ==1)
             {
             @:</div><div class="latest-prdouct__slider__item">
-                count = 1;
+                
             }
         }
     </div>

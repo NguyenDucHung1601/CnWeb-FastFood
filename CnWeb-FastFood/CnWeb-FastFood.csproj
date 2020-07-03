@@ -163,6 +163,7 @@
     <Compile Include="Models\Dao\Admin\DiscountCodeDao.cs" />
     <Compile Include="Models\Dao\Admin\ProductDao.cs" />
     <Compile Include="Models\Dao\Admin\UserDao.cs" />
+    <Compile Include="Models\Dao\Client\ShopDetailDao.cs" />
     <Compile Include="Models\EF\Bill.cs" />
     <Compile Include="Models\EF\BillDetail.cs" />
     <Compile Include="Models\EF\BillStatus.cs" />
@@ -1412,6 +1413,7 @@
     <Content Include="Views\Home\LatestProducts.cshtml" />
     <Content Include="Views\Home\TopRatedProducts.cshtml" />
     <Content Include="Views\Home\ReviewProducts.cshtml" />
+    <Content Include="Views\ShopDetail\Index.cshtml" />
     <Content Include="Views\Shared\_BeginContentLayoutHome.cshtml" />
     <Content Include="Views\Shared\_BeginContentLayoutOtherHome.cshtml" />
     <Content Include="Views\Home\ProductFilterShow.cshtml" />
@@ -1422,8 +1424,6 @@
     <Folder Include="Areas\Client\Controllers\" />
     <Folder Include="Areas\Client\Models\" />
     <Folder Include="Areas\Client\Views\Shared\" />
-    <Folder Include="Models\Dao\Client\" />
-    <Folder Include="Views\ShopDetail\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
