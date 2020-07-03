@@ -6,10 +6,10 @@ namespace CnWeb_FastFood.Models.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class BillStatu
+    public partial class BillStatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public BillStatu()
+        public BillStatus()
         {
             Bills = new HashSet<Bill>();
         }

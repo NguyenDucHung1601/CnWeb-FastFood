@@ -224,15 +224,5 @@ namespace CnWeb_FastFood.Areas.Admin.Controllers
             Pdao.Delete(id);
             return RedirectToAction("Index");
         }
-
-        [HttpPost]
-        public JsonResult ChangeAvailability(long id)
-        {
-            var result = Pdao.ChangeAvailability(id);
-            return Json(new
-            {
-                availability = result
-            });
-        }
     }
 }

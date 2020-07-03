@@ -3,6 +3,7 @@ using CnWeb_FastFood.Models.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -19,15 +20,16 @@ namespace CnWeb_FastFood.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var product = SDdao.getProduct(id);
-            if (BillDetail == null)
+            
+            ViewBag.product = SDdao.GetProduct(id);
+            var productDetailList = SDdao.GetProductDetail(id);
+            if (productDetailList == null)
             {
                 return HttpNotFound();
-            }
-            ViewBag.id_bill = id;
+            }            
 
-            return PartialView(BillDetail);
-            return View();
+            return View(productDetailList);
+           
         }
 
         protected override void Dispose(bool disposing)

@@ -43,7 +43,7 @@ namespace CnWeb_FastFood.Areas.Admin.Controllers
             }
             else
             {
-                ViewBag.Bill = db.Bills.Where(p => p.id_bill == idBill).Include(b => b.BillStatu).Include(b => b.Customer).First();
+                ViewBag.Bill = db.Bills.Where(p => p.id_bill == idBill).Include(b => b.BillStatus).Include(b => b.Customer).First();
             }
             return View();
         }
