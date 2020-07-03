@@ -7,15 +7,14 @@ using System.Web.Mvc;
 
 namespace CnWeb_FastFood.Controllers
 {
-    public class ShopController : Controller
+    public class ShopDetailController : Controller
     {
-        // GET: Shop
+        // GET: ShopDetail
         private SnackShopDBContext db = new SnackShopDBContext();
         public ActionResult Index()
         {
             return View();
         }
-
 
         protected override void Dispose(bool disposing)
         {
