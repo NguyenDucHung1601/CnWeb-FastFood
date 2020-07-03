@@ -66,5 +66,14 @@ namespace CnWeb_FastFood.Controllers
         {
             return PartialView(db.Products.OrderByDescending(p => p.review).Take(5));
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }
