@@ -15,7 +15,11 @@ namespace CnWeb_FastFood.Controllers
         public static Checkout bill;
         public ActionResult Index()
         {
-            ViewBag.customer = new CustomerDao().getByID((int)Session["ID_SESSION"]);
+            if (Session["ID_SESSION"] != null)
+            {
+                ViewBag.customer = new CustomerDao().getByID(Convert.ToInt32(Session["ID_SESSION"]));
+            }
+                
             return View(bill);
         }
 

@@ -27,10 +27,11 @@ namespace CnWeb_FastFood.Controllers
                 list = (List<CartItem>)cart;
             }
             decimal discount = 0;
-            if (!string.IsNullOrEmpty(discountCode))
+            if (discountCode!=null)
             {
                 var dc = new DiscountCodeDao().getByID(discountCode);
                 discount = dc.discount.GetValueOrDefault(0);
+                
             }
             decimal subtotal = list.Sum(x => x.IntoMoney);
             decimal total = subtotal - discount;
