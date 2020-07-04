@@ -16,6 +16,12 @@ namespace CnWeb_FastFood.Controllers
         private ShopDetailDao SDdao = new ShopDetailDao();
         public ActionResult Index(int? id)
         {
+            Product product = db.Products.Find(id);
+            var countReviews = product.review;
+            product.review = countReviews + 1;
+            db.SaveChanges();
+
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
