@@ -19,7 +19,7 @@ namespace CnWeb_FastFood.Controllers
             {
                 ViewBag.customer = new CustomerDao().getByID(Convert.ToInt32(Session["ID_SESSION"]));
             }
-                
+            
             return View(bill);
         }
 

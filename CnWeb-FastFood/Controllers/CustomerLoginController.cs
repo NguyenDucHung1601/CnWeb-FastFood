@@ -5,12 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using CnWeb_FastFood.Models.Dao.Client;
 using CnWeb_FastFood.Areas.Admin.Models;
+using CnWeb_FastFood.Models.EF;
 
 namespace CnWeb_FastFood.Controllers
 {
     public class CustomerLoginController : Controller
     {
         // GET: CustomerLogin
+        SnackShopDBContext db = new SnackShopDBContext();
         public ActionResult Index()
         {
             return View();
@@ -33,7 +35,7 @@ namespace CnWeb_FastFood.Controllers
                     Session.Add(CommonConstants.USER_SESSION, userSession.Name);
                     Session.Add(CommonConstants.ID_SESSION, userSession.UserID);
                     Session.Add(CommonConstants.AVATAR_SESSION, userSession.Avatar);
-
+                    
                     return RedirectToAction("Index", "Home");
                 }
                 else if (result == 0)
