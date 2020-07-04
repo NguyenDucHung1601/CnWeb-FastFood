@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CnWeb_FastFood.Models.Dao.Client;
 using CnWeb_FastFood.Models.EF;
 
 namespace CnWeb_FastFood.Controllers
@@ -15,37 +16,33 @@ namespace CnWeb_FastFood.Controllers
     {
         // GET: Home
         private SnackShopDBContext db = new SnackShopDBContext();
-        public ActionResult Index(string searchString, string catelogyString)
+        public ActionResult Index(string keyword, string catelogyString)
         {
-            ViewBag.searchString = searchString;
+            ViewBag.Keyword = keyword;
             ViewBag.catelogyString = catelogyString;
-            IEnumerable< ProductView> list ;
-            if(catelogyString == "All Categories")
+            IEnumerable<ProductView> list;
+            if (catelogyString == "All Categories")
             {
                 catelogyString = "";
             }
-            if (!string.IsNullOrEmpty(searchString))
+
+            if (!string.IsNullOrEmpty(keyword))
             {
                 list = db.Database.SqlQuery<ProductView>($"SELECT p.id_product, p.name as productName, p.id_category, c.name as categoryName, p.availability, p.price, p.salePercent, p.salePrice, p.rate, p.mainPhoto, p.updated " +
                 $"FROM dbo.Product p LEFT JOIN dbo.Category c ON c.id_category = p.id_category where c.[name] LIKE N'%{catelogyString}%'").ToList();
             }
-            list = db.Database.SqlQuery<ProductView>($"SELECT p.id_product, p.name as productName, p.id_category, c.name as categoryName, p.availability, p.price, p.salePercent, p.salePrice, p.rate, p.mainPhoto, p.updated " +
-                $"FROM dbo.Product p LEFT JOIN dbo.Category c ON c.id_category = p.id_category " +
-                $"WHERE c.[name] LIKE N'%{catelogyString}%' AND p.id_product LIKE N'%{searchString}%' " +
-                $"OR p.name LIKE N'%{searchString}%' " +
-                $"OR c.name LIKE N'%{searchString}%' " +
-                $"OR p.availability LIKE N'%{searchString}%' " +
-                $"OR p.price LIKE N'%{searchString}%' " +
-                $"OR p.salePercent LIKE N'%{searchString}%' " +
-                $"OR p.salePrice LIKE N'%{searchString}%' " +
-                $"OR p.rate LIKE N'%{searchString}%' " +
-                $"OR p.updated LIKE N'%{searchString}%'").ToList();
 
-            
+            list = db.Database.SqlQuery<ProductView>($"SELECT p.id_product, p.name as productName, p.id_category, c.name as categoryName, p.availability, p.price, p.salePercent, p.salePrice, p.rate, p.mainPhoto, p.updated " +
+            $"FROM dbo.Product p LEFT JOIN dbo.Category c ON c.id_category = p.id_category " +
+            $"WHERE c.[name] LIKE N'%{catelogyString}%' AND p.name LIKE N'%{keyword}%'").ToList();
+
+            ViewBag.ProductSearchList = list;
+            ViewBag.ProductAllList = db.Products.ToList();
+
             return View(list);
         }
         public ActionResult CategoryShow()
-        {           
+        {
             return PartialView(db.Categories.ToList());
         }
         public ActionResult CategoryShowImage()
@@ -56,12 +53,12 @@ namespace CnWeb_FastFood.Controllers
         {
             return PartialView(db.Categories.ToList());
         }
-
+        
         public ActionResult LatestProducts()
         {
             return PartialView(db.Products.OrderByDescending(p => p.updated).Take(9));
         }
-        
+
         public ActionResult TopRatedProducts()
         {
             return PartialView(db.Products.OrderByDescending(p => p.rate).Take(9));
@@ -71,6 +68,17 @@ namespace CnWeb_FastFood.Controllers
         {
             return PartialView(db.Products.OrderByDescending(p => p.review).Take(9));
         }
+
+        public JsonResult ListName(string q)
+        {
+            var data = new HomeProductDao().ListName(q);
+            return Json(new
+            {
+                data = data,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
+        }
+
 
         protected override void Dispose(bool disposing)
         {

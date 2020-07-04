@@ -163,6 +163,7 @@
     <Compile Include="Models\Dao\Admin\DiscountCodeDao.cs" />
     <Compile Include="Models\Dao\Admin\ProductDao.cs" />
     <Compile Include="Models\Dao\Admin\UserDao.cs" />
+    <Compile Include="Models\Dao\Client\HomeProductDao.cs" />
     <Compile Include="Models\Dao\Client\ShopDetailDao.cs" />
     <Compile Include="Models\EF\Bill.cs" />
     <Compile Include="Models\EF\BillDetail.cs" />
@@ -1177,6 +1178,7 @@
     <Content Include="Assets\Client\img\product\product-8.jpg" />
     <Content Include="Assets\Client\img\product\product-9.jpg" />
     <Content Include="Assets\Client\img\ship.png" />
+    <Content Include="Assets\Client\js\baseController.js" />
     <Content Include="Assets\Client\js\bootstrap.min.js" />
     <Content Include="Assets\Client\js\jquery-3.3.1.min.js" />
     <Content Include="Assets\Client\js\jquery-ui.min.js" />
@@ -1418,6 +1420,12 @@
     <Content Include="Views\Shared\_BeginContentLayoutOtherHome.cshtml" />
     <Content Include="Views\Home\ProductFilterShow.cshtml" />
     <Content Include="Views\Home\ListCategoryShow.cshtml" />
+    <Content Include="Views\Home\ProductSearchShow.cshtml" />
+    <Content Include="Views\Shop\LatestProducts.cshtml" />
+    <Content Include="Views\Shop\SaleOff.cshtml" />
+    <Content Include="Views\Shop\ListCategoryShow.cshtml" />
+    <Content Include="Views\Shop\ProductFilterShow.cshtml" />
+    <Content Include="Views\Shop\ListPriceShow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

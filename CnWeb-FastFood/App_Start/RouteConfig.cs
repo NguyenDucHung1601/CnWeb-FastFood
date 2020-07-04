@@ -24,6 +24,22 @@ namespace CnWeb_FastFood
                url: "{controller}/{action}/{id}",
                defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
            ).DataTokens.Add("area", "Admin");
+
+          //  routes.MapRoute(
+          //    name: "Search",
+          //    url: "Searching",
+          //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+          //    namespaces: new[] { "CnWeb_FastFood.Controllers" }
+          //);
+
+            routes.MapRoute(
+       name: "Search",
+       url: "{controller}/{action}/{id}",
+       defaults: new { controller = "Home", action = "Search", id = UrlParameter.Optional },
+       namespaces: new[] { "CnWeb_FastFood.Controllers" }
+   );
+
+
         }
     }
 }

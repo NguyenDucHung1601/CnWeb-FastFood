@@ -1,8 +1,11 @@
 ﻿@model IEnumerable<CnWeb_FastFood.Models.EF.Category>
 
+<li>
+    <b>Tổng hợp</b>
+</li>
 @foreach (var item in Model)
 {
     <li>
-        @Html.DisplayFor(modelItem => item.name)
+        <b>@Html.DisplayFor(modelItem => item.name)</b>
     </li>
 }

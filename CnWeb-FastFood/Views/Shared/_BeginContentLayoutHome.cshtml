@@ -10,14 +10,23 @@
                     </div>
                     <ul>
                         @Html.Action("CategoryShow")
+                        <li style="color:white">none</li>
+                        <li style="color:white">none</li>
+                        <li style="color:white">none</li>
+                        <li style="color:white">none</li>
+                        <li style="color:white">none</li>
+                        <li style="color:white">none</li>
+                        <li style="color:white">none</li>
+                        <li style="color:white">none</li>
+                        <li style="color:white">none</li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="#">
-                            <input type="text" placeholder="Nhập thông tin tìm kiếm ...">
+                        <form action="/Home/Index" method="get">
+                            <input type="text" id="txtKeyword" name="keyword" placeholder="Nhập thông tin tìm kiếm... " value="@ViewBag.Keyword">
                             <button type="submit" class="site-btn">Tìm kiếm</button>
                         </form>
                     </div>
