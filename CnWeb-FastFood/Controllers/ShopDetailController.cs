@@ -28,9 +28,24 @@ namespace CnWeb_FastFood.Controllers
                 return HttpNotFound();
             }            
 
-            return View(productDetailList);
-           
+            return View(productDetailList);           
         }
+
+        public ActionResult RelatedProduct(int? idCatelogy)
+        {
+            if (idCatelogy == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var relatedProductList= SDdao.GetRelatedProduct(idCatelogy);           
+            if (relatedProductList == null)
+            {
+                return HttpNotFound();
+            }
+
+            return PartialView(relatedProductList);
+        }
+
 
         protected override void Dispose(bool disposing)
         {
