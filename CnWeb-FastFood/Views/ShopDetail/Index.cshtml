@@ -112,19 +112,31 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
                     <h3>@ViewBag.product.name</h3>
+
                     <div class="product__details__rating">
                         Số lượt xem: @ViewBag.product.review
                     </div>
-                    <div class="product__details__price">@ViewBag.product.salePrice VNĐ</div>
 
+                    <div class="product__details__price" id="txttotal">$@@ViewBag.product.salePrice VNĐ</div>
+                    <p>
+                        @ViewBag.product.review
+                    </p>
                     <div class="product__details__quantity">
                         <div class="quantity">
-                            <div class="pro-qty">
-                                <input type="text" value="1">
-                            </div>
+                            
+                                <input  class="pro-qty" type="number" value="1" id="quantity" data-id="@ViewBag.product.id_product" data-price="@ViewBag.product.price">
+                            
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">Thêm vào giỏ</a>
+                    <a href="#" class="primary-btn" id="AddToCard">Thêm vào giỏ</a>
+                    <ul>
+                        @foreach (var item in Model)
+                        {
+                            if (@item.availability == true)
+                            {
+                                <li>
+                                    <b><i class="fa fa-check-circle"></i></b> <span>@item.amount @item.name</span> <b class="pull-right">có sẵn</b>
+                                </li>
 
                     <ul style="padding-top:10px">
                         <li><b>Mô tả sản phẩm:</b></li>
@@ -144,6 +156,7 @@
     </div>
 </section>
 <!-- Product Details Section End -->
+@Html.Action("RelatedProduct", new { @idCatelogy = @ViewBag.product.id_category })
 
 
 @section Scripts{
@@ -155,4 +168,15 @@
     <script src="~/Assets/Client/js/mixitup.min.js"></script>
     <script src="~/Assets/Client/js/owl.carousel.min.js"></script>
     <script src="~/Assets/Client/js/main.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".quantity input").change(function () {
+                var value = $(".quantity input").text;
+                var item = $(".quantity input").offsetParent().
+                    $("#form1").submit();
+            });
+        });
+    </script>
+    <script src="/Assets/Client/Controller/ShopDetailController.js"></script>
+
 }

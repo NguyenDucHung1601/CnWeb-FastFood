@@ -40,6 +40,12 @@ namespace CnWeb_FastFood
    );
 
 
+            routes.MapRoute(
+               name: "Add Cart",
+               url: "Them-gio-hang",
+               defaults: new { controller = "ShopCart", action = "AddItem", id = UrlParameter.Optional },
+               namespaces: new[] {"CnWeb_FastFood.Controllers"}
+           );
         }
     }
 }
