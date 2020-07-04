@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
 namespace CnWeb_FastFood.Models.Dao.Admin
 {
     public class ProductDao
@@ -222,5 +223,7 @@ namespace CnWeb_FastFood.Models.Dao.Admin
 
             return list;
         }
+
+        
     }
 }

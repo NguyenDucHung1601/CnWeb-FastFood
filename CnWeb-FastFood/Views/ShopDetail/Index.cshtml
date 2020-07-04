@@ -94,6 +94,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
                     <h3>@ViewBag.product.name</h3>
+
                     <div class="product__details__rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -102,18 +103,18 @@
                         <i class="fa fa-star-half-o"></i>
                         <span>(18 reviews)</span>
                     </div>
-                    <div class="product__details__price">$@ViewBag.product.price</div>
+                    <div class="product__details__price" id="txttotal">$@ViewBag.product.price</div>
                     <p>
                         @ViewBag.product.review
                     </p>
                     <div class="product__details__quantity">
                         <div class="quantity">
-                            <div class="pro-qty">
-                                <input type="text" value="1">
-                            </div>
+                            
+                                <input  class="pro-qty" type="number" value="1" id="quantity" data-id="@ViewBag.product.id_product" data-price="@ViewBag.product.price">
+                            
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">ADD TO CARD</a>
+                    <a href="#" class="primary-btn" id="AddToCard">ADD TO CARD</a>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
                         @foreach (var item in Model)
@@ -136,15 +137,11 @@
                                         </div>
                                     </div>
                                     <span>@item.name</span>
-                                    <span> (@item.extraPrice VNĐ)</span>
-                                    <div class="product__details__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty" style="height: 35px;">
-                                                <input type="text" value="0" name="@item.id_productDetail-extraPrice" , id="@item.id_productDetail-extraPrice">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    VNĐ
+                                    <span> (+@item.extraPrice VNĐ)</span>
+                                    <span class="pull-right" style="padding-left:10px;">VNĐ</span>
+                                    <span name="@item.id_productDetail-extraPrice" class="pull-right">0</span>
+
+
                                 </li>
                             }
 
@@ -207,6 +204,7 @@
     </div>
 </section>
 <!-- Product Details Section End -->
+@Html.Action("RelatedProduct", new { @idCatelogy = @ViewBag.product.id_category })
 
 
 @section Scripts{
@@ -218,4 +216,15 @@
     <script src="~/Assets/Client/js/mixitup.min.js"></script>
     <script src="~/Assets/Client/js/owl.carousel.min.js"></script>
     <script src="~/Assets/Client/js/main.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".quantity input").change(function () {
+                var value = $(".quantity input").text;
+                var item = $(".quantity input").offsetParent().
+                    $("#form1").submit();
+            });
+        });
+    </script>
+    <script src="/Assets/Client/Controller/ShopDetailController.js"></script>
+
 }

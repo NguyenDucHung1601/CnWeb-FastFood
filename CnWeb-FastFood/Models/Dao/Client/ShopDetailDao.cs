@@ -25,6 +25,12 @@ namespace CnWeb_FastFood.Models.Dao.Client
             return db.ProductDetails.Where(x => x.id_product == id).ToList();
         }
 
+
+        
+        public IEnumerable<Product> GetRelatedProduct(int? idCatelogy)
+        {            
+            return db.Products.Where(x => x.id_category == idCatelogy).ToList();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
