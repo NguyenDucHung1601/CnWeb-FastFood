@@ -4,7 +4,7 @@
     },
     regEvents: function () {
         $('#btnContinue').off('click').on('click', function () {
-            window.location.href = "/Home/Index";
+            window.location.href = "/Shop/Index";
         });
 
         $('#btnUpdate').off('click').on('click', function () {

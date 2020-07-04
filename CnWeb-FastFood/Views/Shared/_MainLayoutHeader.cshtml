@@ -7,11 +7,14 @@
 <div class="humberger__menu__overlay"></div>
 <div class="humberger__menu__wrapper">
     <div class="humberger__menu__logo">
-        <a href="#"><img src="~/Assets/Client/img/logo.png" alt=""></a>
+        <a href="/Home/Index"><img src="~/Assets/Client/img/logo.png" alt=""></a>
     </div>
     
     <div class="humberger__menu__widget">
         <div class="header__top__right__language">
+            <img src="~/Areas/Admin/Content/Photos/@Session["AVATAR_SESSION"]" class="user-image" alt="User Image" />
+            <span class="hidden-xs">@Session["USER_SESSION"]</span>
+
             <img src="~/Assets/Client/img/language.png" alt="">
             <div>Tiếng Việt</div>
         </div>
@@ -23,15 +26,6 @@
         <ul>
             <li class="active"><a href="./index.html" style="font-size: 17px;">Trang chủ</a></li>
             <li><a href="./shop-grid.html" style="font-size: 17px;">Mua hàng</a></li>
-            <li>
-                <a href="#" style="font-size: 17px;">Pages</a>
-                <ul class="header__menu__dropdown">
-                    <li><a href="./shop-details.html">Shop Details</a></li>
-                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                    <li><a href="./checkout.html">Check Out</a></li>
-                    <li><a href="./blog-details.html">Blog Details</a></li>
-                </ul>
-            </li>
             <li><a href="./contact.html" style="font-size: 17px;">Liên hệ</a></li>
         </ul>
     </nav>
@@ -60,49 +54,15 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="header__top__right">
                         <div class="header__top__right__language">
-                            <img src="~/Assets/Client/img/language.png" alt="">
-                            <div>Tiếng Việt</div>
+                            <img src="~/Areas/Admin/Content/Photos/@Session["AVATAR_SESSION"]" onerror="this.onerror=null; this.src='~/Areas/Admin/Content/Photos/default.png'" width="22" class="user-image" alt="" />
+                            <span class="hidden-xs">@Session["USER_SESSION"]</span>
                         </div>
                         <div class="header__top__right__auth">
-                            <a href="#"><i class="fa fa-user"></i> Đăng nhập</a>
+                            <a href="/CustomerLogin/Index"><i class="fa fa-user"></i> Đăng nhập</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="header__logo">
-                    <table>
-                        <a href="/Home/Index"><img src="~/Assets/Client/img/logo.png" alt=""></a>
-                    </table>
-
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <nav class="header__menu">
-                    <ul>
-                        <li class="active"><a href="./index.html" style="font-size: 17px;">Trang chủ</a></li>
-                        <li><a href="/Shop/Index" style="font-size: 17px;">Mua hàng</a></li>
-                        <li>
-                            <a href="#" style="font-size: 17px;">Pages</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="./shop-details.html">Shop Details</a></li>
-                                <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                <li><a href="./checkout.html">Check Out</a></li>
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/ContactUs/Index" style="font-size: 17px;">Liên hệ</a></li>
-                    </ul>
-                </nav>
-            </div>
-            @Html.Action("HeaderCart", "ShopCart")
-        </div>
-        <div class="humberger__open">
-            <i class="fa fa-bars"></i>
         </div>
     </div>
 </header>

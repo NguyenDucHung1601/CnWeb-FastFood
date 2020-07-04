@@ -149,6 +149,9 @@
     <Compile Include="Areas\Admin\Models\CommonConstants.cs" />
     <Compile Include="Areas\Admin\Models\UserLogin.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
+    <Compile Include="Controllers\CustomerBillController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\CustomerLoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopCartController.cs" />
     <Compile Include="Controllers\ShopCheckoutController.cs" />
@@ -165,6 +168,7 @@
     <Compile Include="Models\Dao\Admin\DiscountCodeDao.cs" />
     <Compile Include="Models\Dao\Admin\ProductDao.cs" />
     <Compile Include="Models\Dao\Admin\UserDao.cs" />
+    <Compile Include="Models\Dao\Client\CustomerDao.cs" />
     <Compile Include="Models\Dao\Client\HomeProductDao.cs" />
     <Compile Include="Models\Dao\Client\ShopDetailDao.cs" />
     <Compile Include="Models\EF\Bill.cs" />
@@ -1436,6 +1440,9 @@
     <Content Include="Views\ShopDetail\RelatedProduct.cshtml" />
     <Content Include="Views\ShopCart\Index.cshtml" />
     <Content Include="Views\ShopCart\HeaderCart.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\CustomerLogin\Index.cshtml" />
+    <Content Include="Views\CustomerBill\Index.cshtml" />
     <Content Include="Views\ShopCheckout\Index.cshtml" />
     <Content Include="Views\ShopCheckout\AddBill.cshtml" />
   </ItemGroup>

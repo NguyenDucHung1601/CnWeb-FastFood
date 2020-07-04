@@ -112,10 +112,10 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
                     <h3>@ViewBag.product.name</h3>
-
                     <div class="product__details__rating">
                         Số lượt xem: @ViewBag.product.review
                     </div>
+                    <div class="product__details__price">@ViewBag.product.salePrice VNĐ</div>
 
                     <div class="product__details__price" id="txttotal">$@ViewBag.product.salePrice VNĐ</div>
                     <p>
@@ -152,31 +152,31 @@
                         </ul>
                 </div>
             </div>
+            </div>
         </div>
-    </div>
-</section>
-<!-- Product Details Section End -->
-@Html.Action("RelatedProduct", new { @idCatelogy = @ViewBag.product.id_category })
+    </section>
+    <!-- Product Details Section End -->
+    @Html.Action("RelatedProduct", new { @idCatelogy = @ViewBag.product.id_category })
 
 
-@section Scripts{
-    <script src="~/Assets/Client/js/jquery-3.3.1.min.js"></script>
-    <script src="~/Assets/Client/js/bootstrap.min.js"></script>
-    <script src="~/Assets/Client/js/jquery.nice-select.min.js"></script>
-    <script src="~/Assets/Client/js/jquery-ui.min.js"></script>
-    <script src="~/Assets/Client/js/jquery.slicknav.js"></script>
-    <script src="~/Assets/Client/js/mixitup.min.js"></script>
-    <script src="~/Assets/Client/js/owl.carousel.min.js"></script>
-    <script src="~/Assets/Client/js/main.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $(".quantity input").change(function () {
-                var value = $(".quantity input").text;
-                var item = $(".quantity input").offsetParent().
-                    $("#form1").submit();
+    @section Scripts{
+        <script src="~/Assets/Client/js/jquery-3.3.1.min.js"></script>
+        <script src="~/Assets/Client/js/bootstrap.min.js"></script>
+        <script src="~/Assets/Client/js/jquery.nice-select.min.js"></script>
+        <script src="~/Assets/Client/js/jquery-ui.min.js"></script>
+        <script src="~/Assets/Client/js/jquery.slicknav.js"></script>
+        <script src="~/Assets/Client/js/mixitup.min.js"></script>
+        <script src="~/Assets/Client/js/owl.carousel.min.js"></script>
+        <script src="~/Assets/Client/js/main.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $(".quantity input").change(function () {
+                    var value = $(".quantity input").text;
+                    var item = $(".quantity input").offsetParent().
+                        $("#form1").submit();
+                });
             });
-        });
-    </script>
-    <script src="/Assets/Client/Controller/ShopDetailController.js"></script>
+        </script>
+        <script src="/Assets/Client/Controller/ShopDetailController.js"></script>
 
-}
+    }

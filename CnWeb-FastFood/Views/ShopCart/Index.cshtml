@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-@section Title{var
-    FastFood H&H | Giỏ học
+@section Title{
+    FastFood H&H | Giỏ hàng
 }
 
 @section Styles
@@ -24,6 +24,33 @@
     <link rel="stylesheet" href="~/Assets/Client/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="~/Assets/Client/css/style.css" type="text/css">
 }
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="header__logo">
+                <table>
+                    <a href="/Home/Index"><img src="~/Assets/Client/img/logo.png" alt=""></a>
+                </table>
+
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <nav class="header__menu">
+                <ul>
+                    <li><a href="/Home/Index" style="font-size: 17px;">Trang chủ</a></li>
+                    <li class="active"><a href="/Shop/Index" style="font-size: 17px;">Mua hàng</a></li>
+                    <li><a href="/Contact/Index" style="font-size: 17px;">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+        @Html.Action("HeaderCart", "ShopCart")
+    </div>
+    <div class="humberger__open">
+        <i class="fa fa-bars"></i>
+    </div>
+</div>
 
 <section class="hero hero-normal">
     <div class="container">
@@ -85,10 +112,10 @@
                     <table>
                         <thead>
                             <tr>
-                                <th class="shoping__product">Products</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Total</th>
+                                <th class="shoping__product">Sản phẩm</th>
+                                <th>Giá tiền</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -98,11 +125,11 @@
                             {
                                 <tr id="row_@item.Products.id_product">
                                     <td class="shoping__cart__item">
-                                        <img src="~/Areas/Admin/Content/Photos/@item.Products.mainPhoto" alt="" width="100px">
+                                        <img src="~/Areas/Admin/Content/Photos/@item.Products.mainPhoto" alt="" width="100">
                                         <h5>@item.Products.name</h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        $@item.Products.price
+                                        $@item.Products.salePrice
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
@@ -136,36 +163,36 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
-                    <a href="#" class="primary-btn cart-btn" id="btnContinue">CONTINUE SHOPPING</a>
+                    <a href="#" class="primary-btn cart-btn" id="btnContinue">Tiếp tục mua</a>
                     <a href="#" class="primary-btn cart-btn cart-btn-right" id="btnDeleteAll">
-                        Delete All
+                        Xoá hết
                     </a>
                     <a href="#" class="primary-btn cart-btn cart-btn-right" id="btnUpdate">
                         <span class="icon_loading"></span>
-                        Upadate Cart
+                        Cập nhật giỏ
                     </a>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="shoping__continue">
                     <div class="shoping__discount">
-                        <h5>Discount Codes</h5>
+                        <h5>Mã giảm giá</h5>
                         @using (Html.BeginForm("Index", "ShopCart", FormMethod.Get, new { id = "form1" }))
                         {
-                            <input type="text" name="discountCode" id="txtdiscountCode" placeholder="Enter your coupon code" value="@ViewBag.discountCode">
-                            <button type="submit" class="site-btn">Đặt hàng</button>
+                            <input type="text" name="discountCode" id="txtdiscountCode" placeholder="Nhập mã giảm giá ..." value="@ViewBag.discountCode">
+                            <button type="submit" class="site-btn">Áp dụng</button>
                         }
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="shoping__checkout">
-                    <h5>Cart Total</h5>
+                    <h5>Tổng giỏ hàng</h5>
                     <ul>
-                        <li>Subtotal <span id="txtSubTotal">@Session["SubTotalCartSession"]</span></li>
-                        <li>Total <span id="txtTotal">@Session["TotalCartSession"]</span></li>
+                        <li>Tổng tiền gốc <span id="txtSubTotal">@Session["SubTotalCartSession"]</span></li>
+                        <li>Tổng tiền cuối <span id="txtTotal">@Session["TotalCartSession"]</span></li>
                     </ul>
-                    <a href="#" class="primary-btn" id="checkout">PROCEED TO CHECKOUT</a>
+                    <a href="#" class="primary-btn" id="checkout">Xác nhận thanh toán</a>
                 </div>
             </div>
         </div>
@@ -194,6 +221,4 @@
         });
     </script>
     <script type="text/javascript" src="/Assets/Client/Controller/shopCartController.js"></script>
-    
-
 }

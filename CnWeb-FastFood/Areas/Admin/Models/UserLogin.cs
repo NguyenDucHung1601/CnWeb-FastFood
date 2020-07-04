@@ -12,5 +12,6 @@ namespace CnWeb_FastFood.Areas.Admin.Models
         public string UserName { set; get; }
         public string Name { set; get; }
         public DateTime? CreateDate { set; get; }
+        public string Avatar { set; get; }
     }
 }
