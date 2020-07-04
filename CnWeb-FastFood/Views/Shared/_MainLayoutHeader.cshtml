@@ -55,7 +55,7 @@
                     <div class="header__top__right">
                         <div class="header__top__right__language">
                             <img src="~/Areas/Admin/Content/Photos/@Session["AVATAR_SESSION"]" onerror="this.onerror=null; this.src='~/Areas/Admin/Content/Photos/default.png'" width="22" class="user-image" alt="" />
-                            <span class="hidden-xs">@Session["USER_SESSION"]</span>
+                            <span class="hidden-xs" data-id="@Session["ID_SESSION"]" id="txtCustomer">@Session["USER_SESSION"]</span>
                         </div>
                         <div class="header__top__right__auth">
                             <a href="/CustomerLogin/Index"><i class="fa fa-user"></i> Đăng nhập</a>

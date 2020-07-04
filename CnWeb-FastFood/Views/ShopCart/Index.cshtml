@@ -129,7 +129,7 @@
                                         <h5>@item.Products.name</h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        $@item.Products.salePrice
+                                        @item.Products.salePrice VNĐ
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
@@ -139,7 +139,7 @@
                                         </div>
                                     </td>
                                     <td class="shoping__cart__total">
-                                        $@(item.Products.price.GetValueOrDefault(0) * item.Amount)
+                                        @(item.Products.price.GetValueOrDefault(0) * item.Amount) VNĐ
                                     </td>
                                     <td class="shoping__cart__item__close">
                                         <span class="icon_close">
@@ -189,8 +189,8 @@
                 <div class="shoping__checkout">
                     <h5>Tổng giỏ hàng</h5>
                     <ul>
-                        <li>Tổng tiền gốc <span id="txtSubTotal">@Session["SubTotalCartSession"]</span></li>
-                        <li>Tổng tiền cuối <span id="txtTotal">@Session["TotalCartSession"]</span></li>
+                        <li>Tổng tiền gốc <span id="txtSubTotal">@Session["SubTotalCartSession"]</span>VNĐ</li>
+                        <li>Tổng tiền cuối <span id="txtTotal">@Session["TotalCartSession"]</span> VNĐ</li>
                     </ul>
                     <a href="#" class="primary-btn" id="checkout">Xác nhận thanh toán</a>
                 </div>

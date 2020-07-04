@@ -64,7 +64,7 @@
             });
             var bill = {
                 Item: cartList,
-                Id_customer :"",
+                Id_customer: $('#txtCustomer').data('id'),
                 Subtotal : $('#txtSubTotal').text(),
                 Total : $('#txtTotal').text()
             }

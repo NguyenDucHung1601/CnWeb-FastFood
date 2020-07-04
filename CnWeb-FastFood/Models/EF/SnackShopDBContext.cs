@@ -9,6 +9,7 @@ namespace CnWeb_FastFood.Models.EF
     {
         public SnackShopDBContext()
             : base("name=SnackShopDBContext")
+
         {
         }
 

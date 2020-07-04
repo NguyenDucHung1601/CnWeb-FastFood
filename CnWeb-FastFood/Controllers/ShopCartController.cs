@@ -27,7 +27,7 @@ namespace CnWeb_FastFood.Controllers
                 list = (List<CartItem>)cart;
             }
             decimal discount = 0;
-            if (discountCode!=null)
+            if (!string.IsNullOrEmpty(discountCode))
             {
                 var dc = new DiscountCodeDao().getByID(discountCode);
                 discount = dc.discount.GetValueOrDefault(0);
