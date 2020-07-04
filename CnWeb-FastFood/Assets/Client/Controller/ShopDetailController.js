@@ -21,6 +21,7 @@
                 type: "POST",
                 success: function (res) {
                     if (res.status == true) {
+                        $('#txtCountCart').empty();
                         $('#txtCountCart').append(res.count);
                         $('#txtTotal').empty();
                         $('#txtTotal').append(res.total);
@@ -41,5 +42,5 @@ $('#quantity').change(function () {
     var price = $('#quantity').data('price');
     var money = amount * price;
     $('#txttotal').empty();
-    $('#txttotal').append("$" + money);
+    $('#txttotal').append("$" + money + "VNĐ");
 });
