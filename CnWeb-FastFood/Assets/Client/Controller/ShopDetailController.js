@@ -21,7 +21,7 @@
                 type: "POST",
                 success: function (res) {
                     if (res.status == true) {
-                        $('#txtCountCart')..empty();
+                        $('#txtCountCart').empty();
                         $('#txtCountCart').append(res.count);
                         $('#txtTotal').empty();
                         $('#txtTotal').append(res.total);
