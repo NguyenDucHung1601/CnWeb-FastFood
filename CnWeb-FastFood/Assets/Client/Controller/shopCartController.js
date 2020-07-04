@@ -49,6 +49,38 @@
             });
 
         });
+
+        $('#checkout').on('click', function () {
+            var listProduct = $('.txtquantity');
+            var cartList = [];
+            var dcCode = $('#txtdiscountCode').val();
+            $.each(listProduct, function (i, item) {
+                cartList.push({
+                    Amount: $(item).val(),
+                    Products: {
+                        id_product: $(item).data('id')
+                    }
+                });
+            });
+            var bill = {
+                Item: cartList,
+                Id_customer :"",
+                Subtotal : $('#txtSubTotal').text(),
+                Total : $('#txtTotal').text()
+            }
+
+            $.ajax({
+                url: '/ShopCheckout/AddBill',
+                data: { billModel: JSON.stringify(bill) },
+                dataType: 'json',
+                type: "POST",                
+            }).done(function (res) {
+                window.location.href = res.newUrl;
+            }).fail(function (xhr, a, error) {
+                console.log(error);
+            });
+
+        });
     }
 }
 cart.init();

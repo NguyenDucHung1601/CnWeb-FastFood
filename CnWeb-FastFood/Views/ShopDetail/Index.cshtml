@@ -117,39 +117,39 @@
                         Số lượt xem: @ViewBag.product.review
                     </div>
 
-                    <div class="product__details__price" id="txttotal">$@@ViewBag.product.salePrice VNĐ</div>
+                    <div class="product__details__price" id="txttotal">$@ViewBag.product.salePrice VNĐ</div>
                     <p>
                         @ViewBag.product.review
                     </p>
                     <div class="product__details__quantity">
                         <div class="quantity">
-                            
-                                <input  class="pro-qty" type="number" value="1" id="quantity" data-id="@ViewBag.product.id_product" data-price="@ViewBag.product.price">
-                            
+
+                            <input class="pro-qty" type="number" value="1" id="quantity" data-id="@ViewBag.product.id_product" data-price="@ViewBag.product.price">
+
                         </div>
                     </div>
                     <a href="#" class="primary-btn" id="AddToCard">Thêm vào giỏ</a>
                     <ul>
-                        @foreach (var item in Model)
-                        {
-                            if (@item.availability == true)
-                            {
-                                <li>
-                                    <b><i class="fa fa-check-circle"></i></b> <span>@item.amount @item.name</span> <b class="pull-right">có sẵn</b>
-                                </li>
+                        @*@foreach (var item in Model)
+            {
+                if (@item.availability == true)
+                {
+                    <li>
+                        <b><i class="fa fa-check-circle"></i></b> <span>@item.amount @item.name</span> <b class="pull-right">có sẵn</b>
+                    </li>*@
 
-                    <ul style="padding-top:10px">
-                        <li><b>Mô tả sản phẩm:</b></li>
-                        @{
+                        <ul style="padding-top:10px">
+                            <li><b>Mô tả sản phẩm:</b></li>
+                            @{
 
-                            var productDetail = SplitInfo(ViewBag.product.description);
+                                var productDetail = SplitInfo(ViewBag.product.description);
 
-                            foreach (var element in productDetail)
-                            {
-                                <li><i class="fa fa-check-circle" style="color:green"></i>&nbsp;&nbsp;&nbsp;<b>@element</b></li>
+                                foreach (var element in productDetail)
+                                {
+                                    <li><i class="fa fa-check-circle" style="color:green"></i>&nbsp;&nbsp;&nbsp;<b>@element</b></li>
+                                }
                             }
-                        }
-                    </ul>
+                        </ul>
                 </div>
             </div>
         </div>

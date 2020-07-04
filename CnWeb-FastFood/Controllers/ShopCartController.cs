@@ -112,7 +112,7 @@ namespace CnWeb_FastFood.Controllers
             });
         }
 
-            public JsonResult Update(string cartModel)
+        public JsonResult Update(string cartModel)
         {
             var jsonCart = new JavaScriptSerializer().Deserialize<List<CartItem>>(cartModel);
             var sessionCart = (List<CartItem>)Session[CartSession];
