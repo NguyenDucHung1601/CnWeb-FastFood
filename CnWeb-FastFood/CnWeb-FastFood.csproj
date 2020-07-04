@@ -151,6 +151,7 @@
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopCartController.cs" />
+    <Compile Include="Controllers\ShopCheckoutController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\ShopDetailController.cs" />
     <Compile Include="Global.asax.cs">
@@ -174,6 +175,7 @@
     <Compile Include="Models\EF\CartDetail.cs" />
     <Compile Include="Models\EF\CartItem.cs" />
     <Compile Include="Models\EF\Category.cs" />
+    <Compile Include="Models\EF\Checkout.cs" />
     <Compile Include="Models\EF\Customer.cs" />
     <Compile Include="Models\EF\DiscountCode.cs" />
     <Compile Include="Models\EF\Product.cs" />
@@ -1100,6 +1102,7 @@
     <Content Include="Assets\Admin\LTE\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Assets\Admin\otherAssets\style.css" />
     <Content Include="Assets\Client\Controller\shopCartController.js" />
+    <Content Include="Assets\Client\Controller\ShopCheckoutController.js" />
     <Content Include="Assets\Client\Controller\ShopDetailController.js" />
     <Content Include="Assets\Client\css\bootstrap.min.css" />
     <Content Include="Assets\Client\css\elegant-icons.css" />
@@ -1433,6 +1436,8 @@
     <Content Include="Views\ShopDetail\RelatedProduct.cshtml" />
     <Content Include="Views\ShopCart\Index.cshtml" />
     <Content Include="Views\ShopCart\HeaderCart.cshtml" />
+    <Content Include="Views\ShopCheckout\Index.cshtml" />
+    <Content Include="Views\ShopCheckout\AddBill.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

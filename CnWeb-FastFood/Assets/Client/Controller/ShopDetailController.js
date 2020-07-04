@@ -41,5 +41,5 @@ $('#quantity').change(function () {
     var price = $('#quantity').data('price');
     var money = amount * price;
     $('#txttotal').empty();
-    $('#txttotal').append("$" + money);
+    $('#txttotal').append("$" + money + "VNĐ");
 });
